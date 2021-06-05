@@ -14,7 +14,9 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $users = User::get();
+
+        // dd(\Auth::user()->role->name);
+        $users = User::where('role_id', '!=', 3)->get();
         return view('admin.doctor.index' , compact('users'));
         
     }
@@ -39,10 +41,8 @@ class DoctorController extends Controller
     {
         $this->validateStore( $request );
         $data = $request->all();
-        $image = $request->file('image');
-        $name = $image->hashName();
-        $destination = public_path( '/images' );
-        $image->move( $destination,$name );
+
+        $name = (new User)->userAvatar( $request );
 
         $data['image'] = $name ;
         $data['password'] = bcrypt( $request->password );
@@ -60,7 +60,8 @@ class DoctorController extends Controller
      */
     public function show($id)
     {
-        return 'hi';
+        $user = User::find($id);
+        return view('admin.doctor.delete', compact('user'));
     }
 
     /**
@@ -91,11 +92,10 @@ class DoctorController extends Controller
         $userPassword = $user->password;
         
         if( $request->hasFile('image') ){
-            $image = $request->file('image');
-            $imageName = $image->hashName();
-            $destination = public_path( '/images' );
-            $image->move( $destination,$imageName );
-        
+
+            $imageName = (new User)->userAvatar( $request );
+            unlink( 'images/'.$user->image );
+               
         }
         $data['image'] = $imageName;
         if( $request->password ){
@@ -118,7 +118,19 @@ class DoctorController extends Controller
      */
     public function destroy($id)
     {
-        //
+          if( auth()->user()->id == $id ){
+              abort(401);
+          }
+          $user = User::find($id);
+          $userDelete = $user->delete();
+
+          if( $userDelete ){
+              unlink( public_path('images/'. $user->image ) );
+          }
+
+        return redirect()->route('doctor.index')->with('message', 'Doctor Deleted successfully');
+
+
     }
 
     public function validateStore($request){
