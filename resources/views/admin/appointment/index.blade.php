@@ -43,7 +43,7 @@
   @endforeach
   
 
-  <form action=" {{route('appointment.store')}} "  method="POST"> 
+  <form action=" {{route('appointment.check')}} "  method="POST"> 
     @csrf
   
   
@@ -54,8 +54,12 @@
         </div>
         <div class="card-body">
          <input type="text" name="date" class="form-control datetimepicker-input" id="datepicker" data-toggle="datetimepicker" data-target="#datepicker" name="date">
+            <br>
+        <button type="submit" class="btn btn-primary">Check</button>
         </div>
     </div>
+  </form>
+
 
     <div class="card">
         <div class="card-header">
@@ -199,7 +203,6 @@
         </div>
     </div>
     
-  </form>
 </div>
 
 <style type="text/css">
