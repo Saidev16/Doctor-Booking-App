@@ -53,7 +53,7 @@
 
         </div>
         <div class="card-body">
-         <input type="text" name="date" class="form-control datetimepicker-input" id="datepicker" data-toggle="datetimepicker" data-target="#datepicker" name="date">
+         <input autocomplete="off" type="text" name="date" class="form-control datetimepicker-input" id="datepicker" data-toggle="datetimepicker" data-target="#datepicker" name="date">
         </div>
     </div>
 

@@ -28,6 +28,16 @@
                             <a href=" {{route('doctor.index')}} " class="menu-item">View</a>
                         </div>
                     </div>
+
+                    <div class="nav-item has-sub">
+                        <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Appointment Time</span></a>
+                        <div class="submenu-content">
+                            <a href="{{ route('appointment.create') }}" class="menu-item">Create</a>
+                            <a href=" {{route('appointment.index')}} " class="menu-item">Check / Update</a>
+                        </div>
+                    </div>
+
+
                     <div class="nav-lavel">UI Element</div>
                     <div class="nav-item has-sub">
                         <a href="#"><i class="ik ik-box"></i><span>Basic</span></a>
