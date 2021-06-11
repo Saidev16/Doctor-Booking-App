@@ -84,6 +84,12 @@
         </main>
     </div>
 
+    <style>
+        body{
+            background:#fff;
+        }
+    </style>
+        
     <script>
         $( function() {
           $( "#datepicker" ).datepicker( {dateFormat:'yy-mm-dd'} ).val();
