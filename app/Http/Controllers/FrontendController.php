@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Appointment;
 use App\Time;
+use App\User;
 
 class FrontendController extends Controller{
 
@@ -20,7 +21,7 @@ class FrontendController extends Controller{
     public function show($doctorId, $date){
         $appointment = Appointment::where('user_id', $doctorId)->where('date', $date)->first();
         $times = Time::where('appointment_id', $appointment->id)->where('status', 0)->get();
-        // return $times;
-        return view('appointment', compact('times', 'date'));
+        $user = User::where('id', $doctorId)->first();
+        return view('appointment', compact('times', 'date', 'user'));
     }
 }
