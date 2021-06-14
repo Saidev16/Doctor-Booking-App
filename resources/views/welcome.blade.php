@@ -25,8 +25,10 @@
     </div>
     <hr>
     <section class="">
-        <div class="card">
-            <div class="card-header">Find Doctors</div>
+        
+        <form action="{{url('/')}}" method="GET">
+            <div class="card">
+                <div class="card-header">Find Doctors</div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-8">
@@ -37,11 +39,10 @@
                         </div>
 
                     </div>
-                </div>
-                
+                </div> 
             </div>
-
-            <div class="card mt-1">
+        </form>
+        <div class="card mt-1">
             <div class="card-header"> Doctors available today</div>
                 <div class="card-body">
 
@@ -80,7 +81,6 @@
                     
                 </div>
                 
-            </div>
         </div>
     </section>
 </div>
