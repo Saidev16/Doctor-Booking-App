@@ -58,25 +58,17 @@
                       <tbody>
                         @forelse($doctors as $doctor)
                             <tr>
-                            <th scope="row">1</th>
-                            <td><img src="{{ asset('images') }}/{{$doctor->doctor->image}}" width="80" style="border-radius: 50%;">
-                            </td>
-                            <td>{{$doctor->doctor->name}}</td>
-                            <td>@twitter</td>
-                            <td>
-                                <button class="btn btn-success">Book Appointment</button>
-                            </td>
-                            </tr>
-
-                            <tr>
-                            <th scope="row">1</th>
-                            <td><img src="/doctor/doctor.png" width="80" style="border-radius: 50%;">
-                            </td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                            <td>
-                                <button class="btn btn-success">Book Appointment</button>
-                            </td>
+                                <th scope="row">1</th>
+                                <td>
+                                    <img src="{{ asset('images') }}/{{$doctor->doctor->image}}" width="80" style="border-radius: 50%;">
+                                </td>
+                                <td>{{$doctor->doctor->name}}</td>
+                                <td>{{$doctor->doctor->department}}</td>
+                                <td>
+                                    <a href="{{route('create.appointment', [$doctor->user_id, $doctor->date])}}">
+                                        <button class="btn btn-success">Book Appointment</button>
+                                    </a>
+                                </td>
                             </tr>
                             @empty
                             <td>No doctors available today</td>
