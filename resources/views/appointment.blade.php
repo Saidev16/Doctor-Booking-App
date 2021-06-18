@@ -18,15 +18,21 @@
             </div>
         </div>
         <div class="col-md-9">
+            @foreach ($errors->all() as $error)
+                <div class="alert alert-danger">{{$error}}</div>
+            @endforeach
+            
+            @if (Session::has('message'))
+                <div class="alert alert-success">{{Session::get('message')}}</div>
+            @endif
+    
+            @if (Session::has('errmessage'))
+                <div class="alert alert-danger">{{Session::get('errmessage')}}</div>
+            @endif
             <div class="card">
                 <div class="card-header lead">{{$date}}</div>
                 <div class="card-body">
-                    @foreach ($errors->all() as $error)
-                        <div class="alert alert-danger">{{$error}}</div>
-                    @endforeach
-                    @if (Session::has('message'))
-                        <div class="alert alert-success">{{Session::get('message')}}</div>
-                    @endif
+                    
                     <form action="{{route('booking.appointment')}} " method="POST">
                         @csrf
                         <div class="row">
