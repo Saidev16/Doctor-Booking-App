@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Appointment;
+use App\Booking;
 use App\Time;
 use App\User;
 
@@ -32,5 +33,21 @@ class FrontendController extends Controller{
         
         $doctors = Appointment::where('date', $date)->get();
         return $doctors;
+    }
+
+    public function store(Request $request){
+        $request->validate(['time'=>'required']);
+        Booking::created([
+            'user_id' => auth()->user()->id,
+            'doctor_id' => $request->doctorId,
+            'time' => $request->time,
+            'date' => $request->date,
+            'status' => 0,
+        ]);
+        Time::where('appointment_id', $request->appointmentId)
+            ->where('time', $request->time)
+            ->update(['status'=> 1]);
+            return redirect()->back()->with('message', 'Your appointment was booked');
+
     }
 }

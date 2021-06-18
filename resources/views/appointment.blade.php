@@ -21,8 +21,13 @@
             <div class="card">
                 <div class="card-header lead">{{$date}}</div>
                 <div class="card-body">
-
-                    <form action="" method="POST">
+                    @foreach ($errors->all() as $error)
+                        <div class="alert alert-danger">{{$error}}</div>
+                    @endforeach
+                    @if (Session::has('message'))
+                        <div class="alert alert-success">{{Session::get('message')}}</div>
+                    @endif
+                    <form action="{{route('booking.appointment')}} " method="POST">
                         @csrf
                         <div class="row">
                             @foreach ($times as $time)
@@ -34,15 +39,16 @@
                             </div>
                             <input type="hidden" name="doctorId" value="{{$doctor_id}}">
                             <input type="hidden" name="appointmentId" value="{{$time->appointment_id}}">
+                            <input type="hidden" name="date" value="{{$date}}">
                             
                             @endforeach
                         </div>
                         <div class="card-footer">
                             @if (Auth::check())
-                                <button type="submit" class="btn btn-success" style="width: 100%;">Book appointment</button>
+                            <button type="submit" class="btn btn-success" style="width: 100%;">Book appointment</button>
                             @else
-                                <p>Please login to make an appointment</p>
-                                <a href="/register">Register</a>
+                            <p>Please login to make an appointment</p>
+                            <a href="/register">Register</a>
                                 <a href="/login">Login</a>
                             @endif
                         </div>
