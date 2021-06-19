@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,7 @@ Route::get('/','FrontendController@index' );
 
 Route::get('/new-appointment/{doctorId}/{date}','FrontendController@show' )->name('create.appointment');
 Route::post('/book/appointment/','FrontendController@store' )->name('booking.appointment')->middleware('auth');
+Route::get('/my-booking/','FrontendController@myBookings' )->name('my.booking')->middleware('auth');
 
 
 Route::get('/dashboard', 'DashboardController@index');
