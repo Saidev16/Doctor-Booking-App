@@ -89,4 +89,9 @@ class FrontendController extends Controller{
         $appointments = Booking::where('user_id', auth()->user()->id)->get();
         return view('booking.index', compact('appointments'));
     }
+
+    public function doctorToday(Request $request){
+        $doctors = Appointment::with('doctor')->whereDate('date', date('y-m-d'))->get();
+        return $doctors;
+    }
 }
