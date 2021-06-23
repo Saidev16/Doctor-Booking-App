@@ -3,7 +3,7 @@
         <div class="card m-2">
             <div class="card-header">Find Doctors</div>
             <div class="card-body">
-                <datepicker class="my-datepicker" calendar-class="my-datepicker_calendar" :format="customDate" v-model="time" :inline='true'></datepicker>
+                <datepicker class="my-datepicker" calendar-class="my-datepicker_calendar" :disabledDates="disabledDates" :format="customDate" v-model="time" :inline='true'></datepicker>
             </div>
         </div>
         
@@ -35,6 +35,9 @@
                         <td v-if="doctors.length==0">No doctor available for {{this.time}}</td>
                     </tbody>
                 </table>
+                <div class="text-center">
+                    <pulse-loader :loading="loading" :color="color" :size="size"></pulse-loader>
+                </div>
             </div>
         </div>
     </div>
@@ -42,31 +45,45 @@
 
 <script>
 import datepicker from 'vuejs-datepicker'
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 import moment from 'moment'
 export default {
 
     data() {
         return {
             time:'',
-            doctors:[]
+            doctors:[],
+            loading: false,
+            disabledDates:{
+                to:new Date(Date.now()-8640000)
+            }
         }
     },
 
     components:{
-        datepicker
+        datepicker,
+        PulseLoader
     },
 
     methods:{
         customDate(date){
+            this.loading = true, 
             this.time = moment(date).format('YYYY-MM-DD');
             axios.post('/api/finddoctors', {date:this.time}).then((response)=>{
-            this.doctors = response.data
+                setTimeout(()=>{
+                this.doctors = response.data,
+                this.loading= false
+                }, 1000)
+
         }).catch((error)=>{alert('error')})
         }
     },
     mounted(){
+        
+            this.loading = true, 
         axios.get('/api/doctors/today').then((response)=>{
-            this.doctors = response.data
+            this.doctors = response.data,
+            this.loading= false
         })
     }
 }
