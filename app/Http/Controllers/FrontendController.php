@@ -94,4 +94,9 @@ class FrontendController extends Controller{
         $doctors = Appointment::with('doctor')->whereDate('date', date('y-m-d'))->get();
         return $doctors;
     }
+
+    public function finddoctors(Request $request){
+        $doctors = Appointment::with('doctor')->whereDate('date', $request->date)->get();
+        return $doctors;
+    }
 }

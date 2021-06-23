@@ -3,7 +3,7 @@
         <div class="card m-2">
             <div class="card-header">Find Doctors</div>
             <div class="card-body">
-                <datepicker :format="customDate" v-model="time" :inline='true'></datepicker>
+                <datepicker class="my-datepicker" calendar-class="my-datepicker_calendar" :format="customDate" v-model="time" :inline='true'></datepicker>
             </div>
         </div>
         
@@ -32,6 +32,7 @@
                                 <a :href="'/new-appointment/'+d.user_id+'/'+d.date"><button class="btn btn-success">Booking</button></a>
                             </td>
                         </tr>
+                        <td v-if="doctors.length==0">No doctor available for {{this.time}}</td>
                     </tbody>
                 </table>
             </div>
@@ -58,6 +59,9 @@ export default {
     methods:{
         customDate(date){
             this.time = moment(date).format('YYYY-MM-DD');
+            axios.post('/api/finddoctors', {date:this.time}).then((response)=>{
+            this.doctors = response.data
+        }).catch((error)=>{alert('error')})
         }
     },
     mounted(){
@@ -67,3 +71,9 @@ export default {
     }
 }
 </script>
+<style scoped>
+    .my-datepicker >>> .my-datepicker_calendar{
+        width: 100%;
+        height: 330px;
+    }
+</style>
