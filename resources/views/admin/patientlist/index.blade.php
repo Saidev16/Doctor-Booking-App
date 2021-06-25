@@ -6,14 +6,32 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Réservations ({{$bookings->count()}})</div>
+                <form action="{{route('patient')}}" mathod="GET">
+                    <div class="card-header">
+                            <span class="mr-3" >Filter</span> 
+                            <div class="row">
+                            <div class="col-md-10">
+                                <input autocomplete="off" type="text" name="date" class="form-control datetimepicker-input" id="datepicker" data-toggle="datetimepicker" data-target="#datepicker" name="date">
+
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-primary" >Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
 
                 <div class="card-body">
                     <table class="table">
                         <thead>
                           <tr>
                             <th scope="col">#</th>
+                            <th scope="col">Image</th>
                             <th scope="col">Date</th>
                             <th scope="col">Utilisateur</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Telephone</th>
+                            <th scope="col">Genre</th>
                             <th scope="col">Heure</th>
                             <th scope="col">Docteur</th>
                             <th scope="col">Statut</th>
@@ -23,8 +41,12 @@
                             @forelse ($bookings as $key=>$booking)
                                 <tr>
                                     <th scope="row">{{$key+1}}</th>
+                                    <td> <img src="/profile/{{$booking->user->image}}" width="40" style="border-radius: 50%" > </td> 
                                     <td>{{$booking->date}} </td>
                                     <td>{{$booking->user->name}}</td>
+                                    <td>{{$booking->user->email}}</td>
+                                    <td>{{$booking->user->phone_number}}</td>
+                                    <td>{{$booking->user->gender}}</td>
                                     <td>{{$booking->time}}</td>
                                     <td>{{$booking->doctor->name}}</td>
                                     <td>

@@ -35,7 +35,7 @@
             <div class="card">
                 <div class="card-header"> <h3>Add doctor</h3> </div>
                 <div class="card-body"> 
-                    <form  class="forms-sample" method='POST' action="{{ route('doctor.store') }}" enctype="multipart/form-data" > @csrf
+                    <form  class="forms-sample" method='POST' action="{{ route('doctors.store') }}" enctype="multipart/form-data" > @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="fullname">fullname</label>

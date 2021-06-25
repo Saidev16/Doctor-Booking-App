@@ -24,8 +24,8 @@
                     <div class="nav-item has-sub">
                         <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Doctor</span></a>
                         <div class="submenu-content">
-                            <a href="{{ route('doctor.create') }}" class="menu-item">Create</a>
-                            <a href=" {{route('doctor.index')}} " class="menu-item">View</a>
+                            <a href="{{ route('doctors.create') }}" class="menu-item">Create</a>
+                            <a href=" {{route('doctors.index')}} " class="menu-item">View</a>
                         </div>
                     </div>
 

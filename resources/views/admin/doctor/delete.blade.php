@@ -36,10 +36,10 @@
                 <div class="card-header"> <h3>Delete doctor</h3> </div>
                 <div class="card-body"> 
                     <h2 class='mb-2' > {{$user->name}} </h2>
-                    <form  class="forms-sample" action="{{ route('doctor.destroy', [$user->id]) }}" method="post" > @csrf
+                    <form  class="forms-sample" action="{{ route('doctors.destroy', [$user->id]) }}" method="post" > @csrf
                         @method('DELETE')
                         <button type='submit'  class="btn btn-danger mr-2">Confirm</button>
-                         <a href="{{ route('doctor.index') }}"> <button class="btn btn-light">Cancel</button></a>
+                         <a href="{{ route('doctors.index') }}"> <button class="btn btn-light">Cancel</button></a>
 
                     </form>    
                 </div>

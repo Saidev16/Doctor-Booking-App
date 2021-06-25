@@ -128,7 +128,7 @@ class DoctorController extends Controller
               unlink( public_path('images/'. $user->image ) );
           }
 
-        return redirect()->route('doctor.index')->with('message', 'Doctor Deleted successfully');
+        return redirect()->route('doctors.index')->with('message', 'Doctor Deleted successfully');
 
 
     }

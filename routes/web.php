@@ -42,9 +42,9 @@ Route::get('/test', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group( ['middleware'=> ['auth', 'admin'] ], function() {
-    Route::resource('doctor','DoctorController');
+    Route::resource('doctors','DoctorController');
 
-    Route::get('/patients','PatientlistController@index');
+    Route::get('/patients','PatientlistController@index')->name('patient');
 
 });
 
