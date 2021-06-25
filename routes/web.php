@@ -44,6 +44,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group( ['middleware'=> ['auth', 'admin'] ], function() {
     Route::resource('doctor','DoctorController');
 
+    Route::get('/patients','PatientlistController@index');
+
 });
 
 Route::group( ['middleware'=> ['auth', 'doctor'] ], function() {
