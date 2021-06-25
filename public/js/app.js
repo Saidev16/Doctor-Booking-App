@@ -2013,6 +2013,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.loading = true, this.time = moment__WEBPACK_IMPORTED_MODULE_2___default()(date).format('YYYY-MM-DD');
+      console.log(this.time);
       axios.post('/api/finddoctors', {
         date: this.time
       }).then(function (response) {
@@ -60149,9 +60150,9 @@ var render = function() {
             attrs: {
               "calendar-class": "my-datepicker_calendar",
               disabledDates: _vm.disabledDates,
-              format: _vm.customDate,
               inline: true
             },
+            on: { selected: _vm.customDate },
             model: {
               value: _vm.time,
               callback: function($$v) {
@@ -60212,9 +60213,7 @@ var render = function() {
               }),
               _vm._v(" "),
               _vm.doctors.length == 0
-                ? _c("td", [
-                    _vm._v("No doctor available for " + _vm._s(this.time))
-                  ])
+                ? _c("td", [_vm._v("No doctor available for this date")])
                 : _vm._e()
             ],
             2
@@ -60224,11 +60223,7 @@ var render = function() {
         _c(
           "div",
           { staticClass: "text-center" },
-          [
-            _c("pulse-loader", {
-              attrs: { loading: _vm.loading, color: _vm.color, size: _vm.size }
-            })
-          ],
+          [_c("pulse-loader", { attrs: { loading: _vm.loading } })],
           1
         )
       ])

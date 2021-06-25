@@ -3,7 +3,7 @@
         <div class="card m-2">
             <div class="card-header">Find Doctors</div>
             <div class="card-body">
-                <datepicker class="my-datepicker" calendar-class="my-datepicker_calendar" :disabledDates="disabledDates" :format="customDate" v-model="time" :inline='true'></datepicker>
+                <datepicker class="my-datepicker" calendar-class="my-datepicker_calendar" :disabledDates="disabledDates" @selected="customDate" v-model="time" :inline='true'></datepicker>
             </div>
         </div>
         
@@ -32,11 +32,11 @@
                                 <a :href="'/new-appointment/'+d.user_id+'/'+d.date"><button class="btn btn-success">Booking</button></a>
                             </td>
                         </tr>
-                        <td v-if="doctors.length==0">No doctor available for {{this.time}}</td>
+                        <td v-if="doctors.length==0">No doctor available for this date</td>
                     </tbody>
                 </table>
                 <div class="text-center">
-                    <pulse-loader :loading="loading" :color="color" :size="size"></pulse-loader>
+                    <pulse-loader :loading="loading"></pulse-loader>
                 </div>
             </div>
         </div>
@@ -55,7 +55,7 @@ export default {
             doctors:[],
             loading: false,
             disabledDates:{
-                to:new Date(Date.now()-8640000)
+                to:new Date(Date.now()- 8640000)
             }
         }
     },
@@ -69,6 +69,7 @@ export default {
         customDate(date){
             this.loading = true, 
             this.time = moment(date).format('YYYY-MM-DD');
+            console.log(this.time);
             axios.post('/api/finddoctors', {date:this.time}).then((response)=>{
                 setTimeout(()=>{
                 this.doctors = response.data,

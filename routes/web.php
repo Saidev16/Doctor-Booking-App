@@ -21,8 +21,9 @@ Route::get('/','FrontendController@index' );
 Route::get('/new-appointment/{doctorId}/{date}','FrontendController@show' )->name('create.appointment');
 Route::post('/book/appointment/','FrontendController@store' )->name('booking.appointment')->middleware('auth');
 Route::get('/my-booking/','FrontendController@myBookings' )->name('my.booking')->middleware('auth');
+
 Route::get('/profile','ProfileController@index' );
-Route::get('/profile/store','ProfileController@store' );
+Route::post('/profile/store','ProfileController@store' )->name('profile.store');
 
 
 Route::get('/dashboard', 'DashboardController@index');
