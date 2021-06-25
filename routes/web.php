@@ -22,8 +22,9 @@ Route::get('/new-appointment/{doctorId}/{date}','FrontendController@show' )->nam
 Route::post('/book/appointment/','FrontendController@store' )->name('booking.appointment')->middleware('auth');
 Route::get('/my-booking/','FrontendController@myBookings' )->name('my.booking')->middleware('auth');
 
-Route::get('/profile','ProfileController@index' );
+Route::get('/user-profile','ProfileController@index' );
 Route::post('/profile/store','ProfileController@store' )->name('profile.store');
+Route::post('/profile-pic','ProfileController@profilePic' )->name('profile.pic')->middleware('auth');
 
 
 Route::get('/dashboard', 'DashboardController@index');

@@ -14,7 +14,7 @@
                 <div class="card-body">
                     <p>Name: {{auth()->user()->name}} </p>
                     <p>Email: {{auth()->user()->email}} </p>
-                    <p>Address: {{auth()->user()->adress}} </p>
+                    <p>Address: {{auth()->user()->address}} </p>
                     <p>Phone: {{auth()->user()->phone_number}} </p>
                     <p>Gender: {{auth()->user()->gender}} </p>
                     <p>Bio: {{auth()->user()->description}} </p>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">address</label>
-                            <input type="text" name="address" class="form-control" value="{{auth()->user()->adress}}">
+                            <input type="text" name="address" class="form-control" value="{{auth()->user()->address}}">
                         </div>
                         <div class="form-group">
                             <label for="">Phone</label>
@@ -74,13 +74,23 @@
         <div class="col-md-3">
             <div class="card">
                 <div class="card-header">Update Image</div>
-
-                <div class="card-body">
-                    <img  src=" /images/user.jpg " width="120" style="border-radius: 3px"><br>
-                    <input type="file" name="image" class="form-control  mt-3 p-2" id=""><br>
-                    <button type="submit" class="btn btn-primary" >Update</button>
-
-                </div>
+                <form action="{{route('profile.pic')}}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="card-body">
+                        @if (!auth()->user()->image)
+                            <img  src="/images/user.jpg " width="120" style="border-radius: 3px"><br>
+                        @else
+                            <img  src="/profile/{{auth()->user()->image}}" width="120" style="border-radius: 3px"><br>
+                        @endif
+                        <input type="file" name="file" class="form-control  mt-3 p-2" required><br>
+                        @error('file')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        <button type="submit" class="btn btn-primary" >Update</button>
+                    </div>
+            </form>
             </div>
         </div>
     </div>
