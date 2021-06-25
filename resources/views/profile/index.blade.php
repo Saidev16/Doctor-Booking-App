@@ -14,7 +14,7 @@
                 <div class="card-body">
                     <p>Name: {{auth()->user()->name}} </p>
                     <p>Email: {{auth()->user()->email}} </p>
-                    <p>Address: {{auth()->user()->address}} </p>
+                    <p>Address: {{auth()->user()->adress}} </p>
                     <p>Phone: {{auth()->user()->phone_number}} </p>
                     <p>Gender: {{auth()->user()->gender}} </p>
                     <p>Bio: {{auth()->user()->description}} </p>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">address</label>
-                            <input type="text" name="address" class="form-control" value="{{auth()->user()->address}}">
+                            <input type="text" name="adress" class="form-control" value="{{auth()->user()->adress}}">
                         </div>
                         <div class="form-group">
                             <label for="">Phone</label>
