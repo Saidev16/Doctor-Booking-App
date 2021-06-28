@@ -8,6 +8,7 @@ use App\Booking;
 use App\Appointment;
 use Illuminate\Http\Request;
 use App\Mail\AppointmentMail;
+use App\Prescription;
 use Illuminate\Support\Facades\Mail;
 
 class FrontendController extends Controller{
@@ -98,5 +99,10 @@ class FrontendController extends Controller{
     public function finddoctors(Request $request){
         $doctors = Appointment::with('doctor')->whereDate('date', $request->date)->get();
         return $doctors;
+    }
+
+    public function myPrescription(){
+        $prescriptions = Prescription::where('user_id', auth()->user()->id)->get();
+        return view('my-prescription', compact('prescriptions'));
     }
 }

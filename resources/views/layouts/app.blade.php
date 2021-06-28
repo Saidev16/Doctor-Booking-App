@@ -48,7 +48,12 @@
                         @if(Auth::check()) 
                             @if(auth()->user()->role->name === 'patient')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('my.booking') }}">{{ __('My Booking') }}</a>
+                                    <a class="nav-link" href="{{ route('my.booking') }}">{{ __('My Bookings') }}</a>
+                                </li>
+                            @endif
+                            @if(auth()->user()->role->name === 'patient')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('my.prescription') }}">{{ __('My Prescriptions') }}</a>
                                 </li>
                             @endif
                         @endif
