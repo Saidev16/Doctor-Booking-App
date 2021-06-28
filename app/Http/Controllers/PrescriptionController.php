@@ -16,7 +16,7 @@ class PrescriptionController extends Controller
 
     public function store(Request $request){
         $data = $request->all();
-        dd($data);
+        // dd($data);
         $data['medicine'] = implode(',', $request->medicine);
         Prescription::create($data);
         return redirect()->back()->with('message', 'Prescription created');
