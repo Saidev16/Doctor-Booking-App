@@ -54,6 +54,7 @@ Route::group( ['middleware'=> ['auth', 'doctor'] ], function() {
     Route::resource('appointment','AppointmentController');
     Route::post('/appointment/check','AppointmentController@check' )->name('appointment.check');
     Route::post('/appointment/update','AppointmentController@updateTime' )->name('update');
-    Route::get('/patient-today','PrescriptionController@index' );
+    Route::get('/patient-today','PrescriptionController@index' )->name('patients.today');
     Route::post('/prescription','PrescriptionController@store' )->name('prescription');
+    Route::get('/prescription/{user_id}/{date}','PrescriptionController@show' )->name('prescription.show');
 });

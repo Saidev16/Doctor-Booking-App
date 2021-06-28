@@ -58,8 +58,7 @@
                                         @include('prescription.form')
                                       
                                       @else
-                                      View
-                                          
+                                        <a href="{{route('prescription.show', [$booking->user->id, $booking->date])}}" class="btn btn-secondary">voir l'ordonnance</a>
                                       @endif
                                             
                                     </td>
