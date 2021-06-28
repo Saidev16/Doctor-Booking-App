@@ -26,4 +26,9 @@ class PrescriptionController extends Controller
         $prescription = Prescription::where('user_id', $userId)->where('date', $date)->first();
         return view('prescription.show', compact('prescription'));
     }
+
+    public function patientsFromPrescription(){
+        $patients = Prescription::get();
+        return view('prescription.all', compact('patients'));
+    }
 }

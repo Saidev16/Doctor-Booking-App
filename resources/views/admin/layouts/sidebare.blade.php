@@ -50,7 +50,7 @@
                             <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Patients</span></a>
                             <div class="submenu-content">
                                 <a href="{{ route('patients.today') }}" class="menu-item">Patients(aujourd'hui)</a>
-                                <a href=" {{route('appointment.index')}} " class="menu-item">touts les patients</a>
+                                <a href=" {{route('prescription.patients')}} " class="menu-item">touts les patients(Prescription)</a>
                             </div>
                         </div>
                     @endif
