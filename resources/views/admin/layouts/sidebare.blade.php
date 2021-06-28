@@ -55,6 +55,17 @@
                         </div>
                     @endif
 
+                    @if( auth()->check() && auth()->user()->role->name === 'admin')
+                    <div class="nav-item has-sub">
+                        <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Spécialités</span></a>
+                        <div class="submenu-content">
+                            <a href="{{ route('department.create') }}" class="menu-item">Ajouter Spécialités</a>
+                            <a href=" {{route('department.index')}} " class="menu-item">Spécialités</a>
+                        </div>
+                    </div>
+                @endif
+
+
                     
                     @if( auth()->check() && auth()->user()->role->name === 'admin')
                         <div class="nav-item has-sub">

@@ -105,7 +105,7 @@ class DoctorController extends Controller
         }
 
         $user->update($data);
-        return redirect()->route('doctor.index')->with('message', 'Doctor updated successfully');
+        return redirect()->route('doctors.index')->with('message', 'Doctor updated successfully');
 
 
     }

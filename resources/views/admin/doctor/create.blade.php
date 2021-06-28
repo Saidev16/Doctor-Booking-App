@@ -112,7 +112,12 @@
                         <div class="row mt-4">
                             <div class="col-md-6">
                                 <label for="Specialist">Specialist</label>
-                                <input type="text" name="department" class="form-control @error('department') is-invalid @enderror" placeholder="Specialist" >
+                                <select name="department" class="form-control">
+                                    <option value="">please select</option>
+                                    @foreach (App\Department::all() as $d)
+                                        <option value="{{$d->department}}">{{$d->department}}</option>
+                                    @endforeach
+                                </select>
                                 @error('department')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
