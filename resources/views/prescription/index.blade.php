@@ -71,7 +71,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" id="app">
           <input type="hidden" name="user_id" value="{{$booking->user_id}}">
           <input type="hidden" name="doctor_id" value="{{$booking->doctor_id}}">
           <input type="hidden" name="date" value="{{$booking->date}}">
@@ -83,6 +83,10 @@
           <div class="form-group">
               <label for="">symptômes</label>
               <textarea name="symptoms" class="form-control" placeholder="sympotms" required cols="30" rows="2"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="">Médicaments</label>
+            <add-btn></add-btn>
           </div>
           <div class="form-group">
               <label for="">Comment bien prendre son traitement</label>
