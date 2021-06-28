@@ -8,7 +8,7 @@
                     <i class="ik ik-edit bg-blue"></i>
                     <div class="d-inline">
                         <h5>Spécialité</h5>
-                        <span> Ajouter Spécialité </span>
+                        <span> Modifier Spécialité </span>
                     </div>
                 </div>
             </div>
@@ -19,7 +19,7 @@
                             <a href="../index.html"><i class="ik ik-home"></i></a>
                         </li>
                         <li class="breadcrumb-item"><a href="#">Spécialité</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Ajouter Spécialité</li>
+                        <li class="breadcrumb-item active" aria-current="page">Modifier Spécialité</li>
                     </ol>
                 </nav>
             </div>
@@ -35,11 +35,12 @@
             <div class="card">
                 <div class="card-header"> <h3>Ajouter Spécialité</h3> </div>
                 <div class="card-body"> 
-                    <form  class="forms-sample" method='POST' action="{{ route('department.store') }}"> @csrf
+                    <form  class="forms-sample" method='POST' action="{{ route('department.update',[$department->id]) }}"> @csrf
+                        @method('PUT')
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="fullname">Spécialité</label>
-                                <input type="text" value="{{old('department')}}" name="department" class="form-control @error('department') is-invalid @enderror" placeholder="Spécialité" >
+                                <input type="text" value="{{$department->department}}" name="department" class="form-control @error('department') is-invalid @enderror" placeholder="Spécialité" >
                                 @error('department')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -48,7 +49,7 @@
 
                             </div> 
                         </div>
-                        <button class="btn btn-primary mt-3">Ajouter</button>
+                        <button class="btn btn-primary mt-3">Modifier</button>
 
                     </form>    
                 
