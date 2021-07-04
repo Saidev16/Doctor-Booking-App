@@ -1,9 +1,26 @@
 <template>
     <div>
         <div class="card m-2">
-            <div class="card-header">Find Doctors</div>
+            <div class="card-header">Chercher un docteur</div>
             <div class="card-body">
                 <datepicker class="my-datepicker" calendar-class="my-datepicker_calendar" :disabledDates="disabledDates" @selected="customDate" v-model="time" :inline='true'></datepicker>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <select name="department" id="" class="form-control">
+                            <option value="">Spécialité</option>
+                            <option value="Cardiologist">Cardiologist</option>
+                            <option value="Pédiatre">Pédiatre</option>
+                            <option value="">specialité</option>
+                            <option value="">specialité</option>
+                        </select>
+                    </div>                    <div class="col-md-6">
+                        <select name="" id="" class="form-control">
+                            <option value="">Ville</option>
+                            <option value="">agadir</option>
+                            <option value="">rabat</option>
+                        </select>
+                    </div>
+                </div>
             </div>
         </div>
         
