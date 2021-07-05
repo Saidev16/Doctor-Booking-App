@@ -2049,6 +2049,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2057,10 +2058,13 @@ __webpack_require__.r(__webpack_exports__);
     return {
       time: '',
       doctors: [],
+      filtredDoctors: [],
       loading: false,
       disabledDates: {
         to: new Date(Date.now() - 8640000)
-      }
+      },
+      specialite: '',
+      ville: ''
     };
   },
   components: {
@@ -2082,13 +2086,27 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         alert('error');
       });
+    },
+    filterDoctors: function filterDoctors() {
+      if (!this.specialite) {
+        return this.filtredDoctors = this.doctors;
+      }
+
+      var vm = this;
+      this.filtredDoctors = this.doctors.filter(function (obj) {
+        return obj.doctor.department == vm.specialite;
+      });
     }
   },
   mounted: function mounted() {
     var _this2 = this;
 
     this.loading = true, axios.get('/api/doctors/today').then(function (response) {
-      _this2.doctors = response.data, _this2.loading = false;
+      _this2.doctors = response.data;
+
+      _this2.filterDoctors();
+
+      _this2.loading = false;
     });
   }
 });
@@ -60298,9 +60316,7 @@ var render = function() {
               },
               expression: "time"
             }
-          }),
-          _vm._v(" "),
-          _vm._m(0)
+          })
         ],
         1
       )
@@ -60310,13 +60326,112 @@ var render = function() {
       _c("div", { staticClass: "card-header" }, [_vm._v("Doctors")]),
       _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
+        _c("div", { staticClass: "row my-2" }, [
+          _c("div", { staticClass: "col-md-6" }, [
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.specialite,
+                    expression: "specialite"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { name: "department", id: "" },
+                on: {
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.specialite = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                    _vm.filterDoctors
+                  ]
+                }
+              },
+              [
+                _c("option", { attrs: { disabled: "", value: "" } }, [
+                  _vm._v("specialité")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Cardiologist" } }, [
+                  _vm._v("Cardiologist")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Pédiatre" } }, [
+                  _vm._v("Pédiatre")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "specialité" } }, [
+                  _vm._v("specialité")
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6" }, [
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.ville,
+                    expression: "ville"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { name: "", id: "" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.ville = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { disabled: "", value: "" } }, [
+                  _vm._v("Ville")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "agadir" } }, [
+                  _vm._v("agadir")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "rabat" } }, [_vm._v("rabat")])
+              ]
+            )
+          ])
+        ]),
+        _vm._v(" "),
         _c("table", { staticClass: "table table-striped" }, [
-          _vm._m(1),
+          _vm._m(0),
           _vm._v(" "),
           _c(
             "tbody",
             [
-              _vm._l(_vm.doctors, function(d, index) {
+              _vm._l(_vm.filtredDoctors, function(d, index) {
                 return _c("tr", { key: index }, [
                   _c("td", [_vm._v(_vm._s(index + 1))]),
                   _vm._v(" "),
@@ -60371,51 +60486,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mt-3" }, [
-      _c("div", { staticClass: "col-md-6" }, [
-        _c(
-          "select",
-          {
-            staticClass: "form-control",
-            attrs: { name: "department", id: "" }
-          },
-          [
-            _c("option", { attrs: { value: "" } }, [_vm._v("Spécialité")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "Cardiologist" } }, [
-              _vm._v("Cardiologist")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "Pédiatre" } }, [
-              _vm._v("Pédiatre")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "" } }, [_vm._v("specialité")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "" } }, [_vm._v("specialité")])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6" }, [
-        _c(
-          "select",
-          { staticClass: "form-control", attrs: { name: "", id: "" } },
-          [
-            _c("option", { attrs: { value: "" } }, [_vm._v("Ville")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "" } }, [_vm._v("agadir")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "" } }, [_vm._v("rabat")])
-          ]
-        )
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

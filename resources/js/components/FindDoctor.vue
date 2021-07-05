@@ -4,30 +4,31 @@
             <div class="card-header">Chercher un docteur</div>
             <div class="card-body">
                 <datepicker class="my-datepicker" calendar-class="my-datepicker_calendar" :disabledDates="disabledDates" @selected="customDate" v-model="time" :inline='true'></datepicker>
-                <div class="row mt-3">
-                    <div class="col-md-6">
-                        <select name="department" id="" class="form-control">
-                            <option value="">Spécialité</option>
-                            <option value="Cardiologist">Cardiologist</option>
-                            <option value="Pédiatre">Pédiatre</option>
-                            <option value="">specialité</option>
-                            <option value="">specialité</option>
-                        </select>
-                    </div>                    <div class="col-md-6">
-                        <select name="" id="" class="form-control">
-                            <option value="">Ville</option>
-                            <option value="">agadir</option>
-                            <option value="">rabat</option>
-                        </select>
-                    </div>
-                </div>
             </div>
         </div>
         
         <div class="card m-2">
             <div class="card-header">Doctors</div>
-            <div class="card-body">
-                <table class="table table-striped">
+                <div class="card-body">
+                    <div class="row my-2">
+                        <div class="col-md-6">
+                            <select name="department" id="" class="form-control" v-model="specialite" @change="filterDoctors">
+                                <option disabled value="">specialité</option>
+                                <option value="Cardiologist">Cardiologist</option>
+                                <option value="Pédiatre">Pédiatre</option>
+                                <option value="specialité">specialité</option>
+                            </select>
+                        </div>                    
+                        <div class="col-md-6">
+                            <select name="" id="" class="form-control" v-model="ville">
+                                <option disabled value="">Ville</option>
+                                <option value="agadir">agadir</option>
+                                <option value="rabat">rabat</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -38,7 +39,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(d,index) in doctors" v-bind:key="index">
+                        <tr v-for="(d,index) in filtredDoctors" v-bind:key="index">
                             <td>{{index+1}}</td>
                             <td>
                                 <img :src="'/images/'+d.doctor.image" width="80" alt="doctor image">
@@ -70,10 +71,13 @@ export default {
         return {
             time:'',
             doctors:[],
+            filtredDoctors:[],
             loading: false,
             disabledDates:{
                 to:new Date(Date.now()- 8640000)
-            }
+            },
+            specialite: '',
+            ville: '',
         }
     },
 
@@ -94,16 +98,27 @@ export default {
                 }, 1000)
 
         }).catch((error)=>{alert('error')})
+        },
+
+        filterDoctors(){
+            if (!this.specialite ){
+                return this.filtredDoctors = this.doctors
+            }
+            let vm = this
+           this.filtredDoctors = this.doctors.filter(function(obj){
+               return obj.doctor.department == vm.specialite 
+           })
         }
     },
     mounted(){
-        
-            this.loading = true, 
+        this.loading = true, 
         axios.get('/api/doctors/today').then((response)=>{
-            this.doctors = response.data,
+            this.doctors = response.data
+            this.filterDoctors()
             this.loading= false
         })
-    }
+        
+    },
 }
 </script>
 <style scoped>
