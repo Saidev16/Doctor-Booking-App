@@ -49,3 +49,5 @@ Route::group( ['middleware'=> ['auth', 'doctor'] ], function() {
     Route::get('/prescription/{user_id}/{date}','PrescriptionController@show' )->name('prescription.show');
     Route::get('/prescribed-patients','PrescriptionController@patientsFromPrescription')->name('prescription.patients');
 });
+
+Route::get('/test','FrontendController@test' );

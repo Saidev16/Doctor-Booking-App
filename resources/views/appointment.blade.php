@@ -1,23 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body text-center">
                     <h4 class="text-center">
-                       Doctor Information
+                       Informations du docteur
                     </h4>
                     <img src="{{asset('images')}}/{{$user->image}}" alt="" width="80" style="border-radius: 50%;">
                     <br>
-                    <p class="lead">Name : {{ucfirst($user->name)}}</p> 
-                    <p class="lead">Degree :{{$user->education}}</p> 
-                    <p class="lead">Expertise :{{$user->department}}</p> 
+                    <p class="lead mt-3">Nom : {{ucfirst($user->name)}}</p> 
+                    <p class="lead">Niveau d'études :{{$user->education}}</p> 
+                    <p class="lead">Spécialité :{{$user->department}}</p> 
                 </div>
             </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-8">
             @foreach ($errors->all() as $error)
                 <div class="alert alert-danger">{{$error}}</div>
             @endforeach
@@ -49,13 +49,13 @@
                             
                             @endforeach
                         </div>
-                        <div class="card-footer">
+                        <div class="card-footer mt-3">
                             @if (Auth::check())
                             <button type="submit" class="btn btn-success" style="width: 100%;">Book appointment</button>
                             @else
-                            <p>Please login to make an appointment</p>
-                            <a href="/register">Register</a>
-                                <a href="/login">Login</a>
+                            <h5>Veuillez se connecter pour réserver une consultation</h5>
+                            <a href="/register"><button class="btn btn-primary" >S'inscrire</button></a>
+                                <a href="/login"><button class="btn btn-primary">Se Connecter</button></a>
                             @endif
                         </div>
                     </form>

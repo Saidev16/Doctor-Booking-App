@@ -105,4 +105,8 @@ class FrontendController extends Controller{
         $prescriptions = Prescription::where('user_id', auth()->user()->id)->get();
         return view('my-prescription', compact('prescriptions'));
     }
+
+    public function test(){
+        return view('testhome');
+    }
 }
