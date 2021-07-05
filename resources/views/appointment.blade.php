@@ -40,7 +40,7 @@
                             <div class="col-md-3">
                                 <label for="" class="btn btn-outline-primary">
                                     <input type="radio" name="time" value="{{ $time->time }}">
-                                    <span>{{ $time->time }}</span>
+                                    <span style="color: #009efb">{{ $time->time }}</span>
                                 </label>
                             </div>
                             <input type="hidden" name="doctorId" value="{{$doctor_id}}">
@@ -51,7 +51,7 @@
                         </div>
                         <div class="card-footer mt-3">
                             @if (Auth::check())
-                            <button type="submit" class="btn btn-success" style="width: 100%;">Book appointment</button>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Book appointment</button>
                             @else
                             <h5>Veuillez se connecter pour réserver une consultation</h5>
                             <a href="/register"><button class="btn btn-primary" >S'inscrire</button></a>

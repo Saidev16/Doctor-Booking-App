@@ -4,7 +4,7 @@
 
 
 			<!-- Page Content -->
-			<div class="content">
+			<div class="content mb-4">
 				<div class="container-fluid">
 					
 					<div class="row">

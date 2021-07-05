@@ -116,7 +116,7 @@
 </div> --}}
 
 			<!-- Footer -->
-			<footer class="footer">
+			<footer class=" footer  " >
 				
 				<!-- Footer Top -->
 				<div class="footer-top">
@@ -127,7 +127,7 @@
 								<!-- Footer Widget -->
 								<div class="footer-widget footer-about">
 									<div class="footer-logo">
-										<img src="assets/img/footer-logo.png" alt="logo">
+										<img src="assets/img/logo.png" class="img-fluid" style="max-width: 50%" alt="logo">
 									</div>
 									<div class="footer-about-content">
 										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
@@ -228,18 +228,12 @@
 							<div class="row">
 								<div class="col-md-6 col-lg-6">
 									<div class="copyright-text">
-										<p class="mb-0">&copy; 2020 Docbook. All rights reserved.</p>
+										<p class="mb-0">&copy; 2021 Docbook. All rights reserved.</p>
 									</div>
 								</div>
 								<div class="col-md-6 col-lg-6">
 								
 									<!-- Copyright Menu -->
-									<div class="copyright-menu">
-										<ul class="policy-menu">
-											<li><a href="term-condition.html">Terms and Conditions</a></li>
-											<li><a href="privacy-policy.html">Policy</a></li>
-										</ul>
-									</div>
 									<!-- /Copyright Menu -->
 									
 								</div>

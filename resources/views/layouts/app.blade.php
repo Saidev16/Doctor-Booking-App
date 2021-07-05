@@ -167,6 +167,9 @@
 
                         <!-- Authentication Links -->
                         @guest
+                            <a href=""> 
+                                <button class="btn btn-primary mr-4" >vous êtes professionnel de santé ?</button>
+                            </a>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -181,7 +184,7 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu " aria-labelledby="navbarDropdown">
                                     @if( auth()->check() && auth()->user()->role->name === 'patient')
                                         <a class="dropdown-item" href="{{ url('user-profile') }}">Profile</a>
                                    @else
@@ -198,6 +201,7 @@
                                     </form>
                                 </div>
                             </li>
+                         
                         @endguest
 											
 					</ul>
@@ -212,6 +216,8 @@
             @yield('content')
         </main>
     </div>
+
+
     </div>
 
     <style>
@@ -260,7 +266,8 @@
 		
 		<!-- Custom JS -->
 		<script src="{{asset('assets/js/script.js')}}"></script>
-
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
       
 </body>
 </html>

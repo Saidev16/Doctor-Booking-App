@@ -426,16 +426,16 @@ button.bg-danger:hover {
     color: #757575 !important;
 }
 .btn-primary {
-	background-color: #09e5ab;
-	border: 1px solid #09e5ab;
+	background-color: #29A1EA;
+	border: 1px solid #29A1EA;
 }
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary.active,
 .btn-primary:active,
 .open > .dropdown-toggle.btn-primary {
-	background-color: #09dca4;
-	border: 1px solid #09dca4;
+	background-color: #29A1EA;
+	border: 1px solid #29A1EA;
 }
 .btn-primary.active.focus,
 .btn-primary.active:focus,
@@ -446,14 +446,14 @@ button.bg-danger:hover {
 .open > .dropdown-toggle.btn-primary.focus,
 .open > .dropdown-toggle.btn-primary:focus,
 .open > .dropdown-toggle.btn-primary:hover {
-	background-color: #09dca4;
-	border: 1px solid #09dca4;
+	background-color: #29A1EA;
+	border: 1px solid #29A1EA;
 }
 .btn-primary.active:not(:disabled):not(.disabled),
 .btn-primary:active:not(:disabled):not(.disabled),
 .show > .btn-primary.dropdown-toggle {
-	background-color: #09dca4;
-	border-color: #09dca4;
+	background-color: #29A1EA;
+	border-color: #29A1EA;
 	color: #fff;
 }
 .btn-primary.active:focus:not(:disabled):not(.disabled), 
@@ -462,8 +462,8 @@ button.bg-danger:hover {
 	box-shadow: unset;
 }
 .btn-primary.disabled, .btn-primary:disabled {
-    background-color: #09e5ab;
-    border-color: #09e5ab;
+    background-color: #29A1EA;
+    border-color: #29A1EA;
     color: #fff;
 }
 .btn-secondary.active:focus:not(:disabled):not(.disabled), 
@@ -648,11 +648,11 @@ button.bg-danger:hover {
 }
 .btn-outline-primary {
 	color: #09e5ab;
-	border-color: #09e5ab;
+	border-color: #009efb;
 }
 .btn-outline-primary:hover {
-	background-color: #09e5ab;
-	border-color: #09e5ab;
+	background-color: #009efb;
+	border-color: #009efb;
 }
 .btn-outline-primary:focus, 
 .btn-outline-primary.focus {
@@ -660,14 +660,14 @@ button.bg-danger:hover {
 }
 .btn-outline-primary.disabled, 
 .btn-outline-primary:disabled {
-	color: #09e5ab;
+	color: #009efb;
 	background-color: transparent;
 }
 .btn-outline-primary:not(:disabled):not(.disabled):active, 
 .btn-outline-primary:not(:disabled):not(.disabled).active,
 .show > .btn-outline-primary.dropdown-toggle {
-	background-color: #09e5ab;
-	border-color: #09e5ab;
+	background-color: #009efb;
+	border-color: #009efb;
 }
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus, 
 .btn-outline-primary:not(:disabled):not(.disabled).active:focus,
@@ -7393,4 +7393,6 @@ html.menu-opened body {
 	.fc-header-toolbar .fc-right {
 		margin-bottom: 10px;
 	}
+
+
 }
