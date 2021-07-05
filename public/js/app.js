@@ -2050,6 +2050,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -2059,6 +2063,7 @@ __webpack_require__.r(__webpack_exports__);
       time: '',
       doctors: [],
       filtredDoctors: [],
+      filtred: [],
       loading: false,
       disabledDates: {
         to: new Date(Date.now() - 8640000)
@@ -2081,21 +2086,62 @@ __webpack_require__.r(__webpack_exports__);
         date: this.time
       }).then(function (response) {
         setTimeout(function () {
-          _this.doctors = response.data, _this.loading = false;
+          _this.doctors = response.data, _this.filterDoctorsBySpecialite();
+          _this.loading = false;
         }, 1000);
       })["catch"](function (error) {
         alert('error');
       });
     },
-    filterDoctors: function filterDoctors() {
-      if (!this.specialite) {
+    filterDoctorsBySpecialite: function filterDoctorsBySpecialite() {
+      if (!this.specialite && !this.ville) {
         return this.filtredDoctors = this.doctors;
       }
 
       var vm = this;
-      this.filtredDoctors = this.doctors.filter(function (obj) {
-        return obj.doctor.department == vm.specialite;
-      });
+
+      if (!this.ville) {
+        this.filtredDoctors = this.doctors.filter(function (obj) {
+          return obj.doctor.department == vm.specialite;
+        });
+      }
+
+      if (this.ville != '') {
+        if (this.specialite != '') {
+          this.filtredDoctors = this.doctors.filter(function (obj) {
+            return obj.doctor.department == vm.specialite && obj.doctor.address == vm.ville;
+          });
+        } else {
+          this.filtredDoctors = this.doctors.filter(function (obj) {
+            return obj.doctor.address == vm.ville;
+          });
+        }
+      }
+    },
+    filterDoctorsByVille: function filterDoctorsByVille() {
+      if (!this.specialite && !this.ville) {
+        return this.filtredDoctors = this.doctors;
+      }
+
+      var vm = this;
+
+      if (!this.specialite) {
+        this.filtredDoctors = this.doctors.filter(function (obj) {
+          return obj.doctor.address == vm.ville;
+        });
+      }
+
+      if (this.specialite != '') {
+        if (this.ville != '') {
+          this.filtredDoctors = this.doctors.filter(function (obj) {
+            return obj.doctor.address == vm.ville && obj.doctor.department == vm.specialite;
+          });
+        } else {
+          this.filtredDoctors = this.doctors.filter(function (obj) {
+            return obj.doctor.department == vm.specialite;
+          });
+        }
+      }
     }
   },
   mounted: function mounted() {
@@ -2104,7 +2150,7 @@ __webpack_require__.r(__webpack_exports__);
     this.loading = true, axios.get('/api/doctors/today').then(function (response) {
       _this2.doctors = response.data;
 
-      _this2.filterDoctors();
+      _this2.filterDoctorsBySpecialite();
 
       _this2.loading = false;
     });
@@ -60356,7 +60402,7 @@ var render = function() {
                         ? $$selectedVal
                         : $$selectedVal[0]
                     },
-                    _vm.filterDoctors
+                    _vm.filterDoctorsBySpecialite
                   ]
                 }
               },
@@ -60365,16 +60411,18 @@ var render = function() {
                   _vm._v("specialité")
                 ]),
                 _vm._v(" "),
+                _c("option", { attrs: { value: "" } }, [_vm._v("Tous")]),
+                _vm._v(" "),
                 _c("option", { attrs: { value: "Cardiologist" } }, [
                   _vm._v("Cardiologist")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Pédiatre" } }, [
-                  _vm._v("Pédiatre")
+                _c("option", { attrs: { value: "Dermatologists" } }, [
+                  _vm._v("Dermatologists")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "specialité" } }, [
-                  _vm._v("specialité")
+                _c("option", { attrs: { value: "Anesthesiologists" } }, [
+                  _vm._v("Anesthesiologists")
                 ])
               ]
             )
@@ -60395,25 +60443,30 @@ var render = function() {
                 staticClass: "form-control",
                 attrs: { name: "", id: "" },
                 on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.ville = $event.target.multiple
-                      ? $$selectedVal
-                      : $$selectedVal[0]
-                  }
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.ville = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                    _vm.filterDoctorsByVille
+                  ]
                 }
               },
               [
                 _c("option", { attrs: { disabled: "", value: "" } }, [
                   _vm._v("Ville")
                 ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "" } }, [_vm._v("Tous")]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "agadir" } }, [
                   _vm._v("agadir")
@@ -60424,6 +60477,13 @@ var render = function() {
             )
           ])
         ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "text-center" },
+          [_c("pulse-loader", { attrs: { loading: _vm.loading } })],
+          1
+        ),
         _vm._v(" "),
         _c("table", { staticClass: "table table-striped" }, [
           _vm._m(0),
@@ -60445,9 +60505,11 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(d.doctor.name) + " ")]),
+                  _c("td", [_vm._v(_vm._s(d.doctor.name))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(d.doctor.department) + " ")]),
+                  _c("td", [_vm._v(_vm._s(d.doctor.department))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(d.doctor.address))]),
                   _vm._v(" "),
                   _c("td", [
                     _c(
@@ -60467,20 +60529,13 @@ var render = function() {
                 ])
               }),
               _vm._v(" "),
-              _vm.doctors.length == 0
+              _vm.filtredDoctors.length == 0
                 ? _c("td", [_vm._v("No doctor available for this date")])
                 : _vm._e()
             ],
             2
           )
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "text-center" },
-          [_c("pulse-loader", { attrs: { loading: _vm.loading } })],
-          1
-        )
+        ])
       ])
     ])
   ])
@@ -60499,6 +60554,8 @@ var staticRenderFns = [
         _c("th", [_vm._v("Name")]),
         _vm._v(" "),
         _c("th", [_vm._v("Expertise")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Address")]),
         _vm._v(" "),
         _c("th", [_vm._v("Booking")])
       ])
