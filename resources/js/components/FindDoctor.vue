@@ -12,22 +12,26 @@
                 <div class="card-body">
                     <div class="row my-2">
                         <div class="col-md-6">
-                            <select name="department" id="" class="form-control" v-model="specialite" @change="filterDoctors">
+                            <select name="department" id="" class="form-control" v-model="specialite" @change="filterDoctorsBySpecialite">
                                 <option disabled value="">specialité</option>
+                                <option value="">Tous</option>
                                 <option value="Cardiologist">Cardiologist</option>
-                                <option value="Pédiatre">Pédiatre</option>
-                                <option value="specialité">specialité</option>
+                                <option value="Dermatologists">Dermatologists</option>
+                                <option value="Anesthesiologists">Anesthesiologists</option>
                             </select>
                         </div>                    
                         <div class="col-md-6">
-                            <select name="" id="" class="form-control" v-model="ville">
+                            <select name="" id="" class="form-control" v-model="ville"  @change="filterDoctorsByVille">
                                 <option disabled value="">Ville</option>
+                                <option value="">Tous</option>
                                 <option value="agadir">agadir</option>
                                 <option value="rabat">rabat</option>
                             </select>
                         </div>
                     </div>
-
+                    <div class="text-center">
+                        <pulse-loader :loading="loading"></pulse-loader>
+                    </div>
                     <table class="table table-striped">
                     <thead>
                         <tr>
@@ -35,6 +39,7 @@
                             <th>Photo</th>
                             <th>Name</th>
                             <th>Expertise</th>
+                            <th>Address</th>
                             <th>Booking</th>
                         </tr>
                     </thead>
@@ -44,18 +49,17 @@
                             <td>
                                 <img :src="'/images/'+d.doctor.image" width="80" alt="doctor image">
                             </td>
-                            <td>{{d.doctor.name}} </td>
-                            <td>{{d.doctor.department}} </td>
+                            <td>{{d.doctor.name}}</td>
+                            <td>{{d.doctor.department}}</td>
+                            <td>{{d.doctor.address}}</td>
                             <td>
                                 <a :href="'/new-appointment/'+d.user_id+'/'+d.date"><button class="btn btn-success">Booking</button></a>
                             </td>
                         </tr>
-                        <td v-if="doctors.length==0">No doctor available for this date</td>
+                        <td v-if="filtredDoctors.length==0">No doctor available for this date</td>
                     </tbody>
                 </table>
-                <div class="text-center">
-                    <pulse-loader :loading="loading"></pulse-loader>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -72,12 +76,14 @@ export default {
             time:'',
             doctors:[],
             filtredDoctors:[],
+            filtred:[],
             loading: false,
             disabledDates:{
                 to:new Date(Date.now()- 8640000)
             },
             specialite: '',
             ville: '',
+            
         }
     },
 
@@ -94,27 +100,69 @@ export default {
             axios.post('/api/finddoctors', {date:this.time}).then((response)=>{
                 setTimeout(()=>{
                 this.doctors = response.data,
+                this.filterDoctorsBySpecialite()    
                 this.loading= false
                 }, 1000)
 
         }).catch((error)=>{alert('error')})
         },
 
-        filterDoctors(){
-            if (!this.specialite ){
+        filterDoctorsBySpecialite(){
+            if (!this.specialite && !this.ville){
                 return this.filtredDoctors = this.doctors
             }
             let vm = this
-           this.filtredDoctors = this.doctors.filter(function(obj){
-               return obj.doctor.department == vm.specialite 
-           })
+
+            if (!this.ville){
+                    this.filtredDoctors = this.doctors.filter(function(obj){
+                    return obj.doctor.department == vm.specialite;
+                })
+            }
+
+            if (this.ville != '' ){
+                if (this.specialite != '') {
+                    this.filtredDoctors = this.doctors.filter(function(obj){
+                        return obj.doctor.department == vm.specialite && obj.doctor.address == vm.ville;
+                    })
+                }else{
+                    this.filtredDoctors = this.doctors.filter(function(obj){
+                        return obj.doctor.address == vm.ville;
+                    })
+                }
+            }
+        },
+        
+        filterDoctorsByVille(){
+            if (!this.specialite && !this.ville){
+                return this.filtredDoctors = this.doctors
+            }
+            
+            let vm = this
+
+            if (!this.specialite){
+                this.filtredDoctors = this.doctors.filter(function(obj){
+                    return obj.doctor.address == vm.ville;
+                })
+            }
+
+            if (this.specialite != ''){
+                if (this.ville != '') {
+                    this.filtredDoctors = this.doctors.filter(function(obj){
+                        return obj.doctor.address == vm.ville && obj.doctor.department == vm.specialite ;
+                    })
+                }else{
+                    this.filtredDoctors = this.doctors.filter(function(obj){
+                        return obj.doctor.department == vm.specialite;
+                    })
+                }
+            }
         }
     },
     mounted(){
         this.loading = true, 
         axios.get('/api/doctors/today').then((response)=>{
             this.doctors = response.data
-            this.filterDoctors()
+            this.filterDoctorsBySpecialite()
             this.loading= false
         })
         

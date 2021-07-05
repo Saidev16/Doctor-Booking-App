@@ -61,7 +61,7 @@
                                 <td>{{ $user->name }}</td>
                                 <td><img src="{{asset('images')}}/{{$user->image}}"  class="table-user-thumb" alt=""></td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{$user->adress}}</td>
+                                <td>{{$user->address}}</td>
                                 <td>{{$user->phone_number}}</td>
                                 <td>
                                     <div class="table-actions">
