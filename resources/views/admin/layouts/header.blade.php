@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>ThemeKit - Admin Template</title>
+        <title>Docbook - Admin</title>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,6 +26,10 @@
         <link rel="stylesheet" href="{{asset('template/plugins/owl.carousel/dist/assets/owl.theme.default.min.css')}}">
         <link rel="stylesheet" href="{{asset('template/dist/css/theme.min.css')}}">
         <script src="{{asset('template/src/js/vendor/modernizr-2.8.3.min.js')}}"></script>
+<script src="{{asset('https://code.jquery.com/jquery-3.3.1.min.js')}}"></script>
+
+
+
     </head>
 
     <body>

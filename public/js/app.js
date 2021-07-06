@@ -60497,6 +60497,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [
                     _c("img", {
+                      staticStyle: { "border-radius": "10%" },
                       attrs: {
                         src: "/images/" + d.doctor.image,
                         width: "80",
@@ -60520,7 +60521,7 @@ var render = function() {
                         }
                       },
                       [
-                        _c("button", { staticClass: "btn btn-success" }, [
+                        _c("button", { staticClass: "btn btn-primary" }, [
                           _vm._v("Booking")
                         ])
                       ]
@@ -60551,13 +60552,13 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Photo")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Name")]),
+        _c("th", [_vm._v("Nom")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Expertise")]),
+        _c("th", [_vm._v("Spécialité")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Address")]),
+        _c("th", [_vm._v("Ville")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Booking")])
+        _c("th", [_vm._v("Réserver")])
       ])
     ])
   }

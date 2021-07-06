@@ -1,9 +1,4 @@
-<footer class="footer navbar fixed-bottom mt3" style="position: absolute; bottom:0; ">
-    <div class="w-100 clearfix">
-        <span class="text-center text-sm-left d-md-inline-block">Copyright © 2018 ThemeKit v2.0. All Rights Reserved.</span>
-        <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://lavalite.org/" class="text-dark" target="_blank">Lavalite</a></span>
-    </div>
-</footer>
+
 
 </div>
 </div>
@@ -116,7 +111,10 @@
 <script src="{{asset('template/js/widgets.js')}}"></script>
 <script src="{{asset('template/js/charts.js')}}"></script>
 <script src="{{asset('template/dist/js/theme.min.js')}}"></script>
-<script src="{{ asset('js/app.js') }}" defer></script>
+
+{{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+
+
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
@@ -135,5 +133,7 @@ e.src='https://www.google-analytics.com/analytics.js';
 r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
 ga('create','UA-XXXXX-X','auto');ga('send','pageview');
 </script>
+
+
 </body>
 </html>

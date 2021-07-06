@@ -49,8 +49,9 @@
                         <div class="nav-item has-sub">
                             <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Patients</span></a>
                             <div class="submenu-content">
-                                <a href="{{ route('patients.today') }}" class="menu-item">Patients(aujourd'hui)</a>
-                                <a href=" {{route('prescription.patients')}} " class="menu-item">touts les patients(Prescription)</a>
+                                <a href="{{ route('patientDoctor') }}" class="menu-item">Patients</a>
+                                <a href="{{ route('patients.today') }}" class="menu-item">Patients du jour</a>
+                                <a href=" {{route('prescription.patients')}} " class="menu-item">tout les patients(Prescription)</a>
                             </div>
                         </div>
                     @endif

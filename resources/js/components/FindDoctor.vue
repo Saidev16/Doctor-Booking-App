@@ -37,23 +37,23 @@
                         <tr>
                             <th>#</th>
                             <th>Photo</th>
-                            <th>Name</th>
-                            <th>Expertise</th>
-                            <th>Address</th>
-                            <th>Booking</th>
+                            <th>Nom</th>
+                            <th>Spécialité</th>
+                            <th>Ville</th>
+                            <th>Réserver</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="(d,index) in filtredDoctors" v-bind:key="index">
                             <td>{{index+1}}</td>
                             <td>
-                                <img :src="'/images/'+d.doctor.image" width="80" alt="doctor image">
+                                <img :src="'/images/'+d.doctor.image" width="80" alt="doctor image" style="border-radius:10%">
                             </td>
                             <td>{{d.doctor.name}}</td>
                             <td>{{d.doctor.department}}</td>
                             <td>{{d.doctor.address}}</td>
                             <td>
-                                <a :href="'/new-appointment/'+d.user_id+'/'+d.date"><button class="btn btn-success">Booking</button></a>
+                                <a :href="'/new-appointment/'+d.user_id+'/'+d.date"><button class="btn btn-primary">Booking</button></a>
                             </td>
                         </tr>
                         <td v-if="filtredDoctors.length==0">No doctor available for this date</td>

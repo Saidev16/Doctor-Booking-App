@@ -19,6 +19,25 @@ class PatientlistController extends Controller
         return view('admin.patientlist.index', compact('bookings'));
     }
 
+    public function indexDoctor(Request $request){
+
+        if($request->date){
+            $bookings = Booking::latest()->where([
+                ['date',$request->date ],
+                ['doctor_id' , auth()->user()->id]
+                ])->get();
+            return view('admin.patientlist.indexDoctor', compact('bookings'));
+
+        }
+
+        $bookings = Booking::latest()->where([
+            ['date',date('Y-m-d') ],
+            ['doctor_id' , auth()->user()->id]
+            ])->get();
+        return view('admin.patientlist.indexDoctor', compact('bookings'));
+
+    }
+
     public function toggleStatus($id){
         $booking = Booking::find($id);
         $booking->status =! $booking->status; 

@@ -18,6 +18,7 @@ Auth::routes();
 
 Route::get('/','FrontendController@index' );
 Route::get('/new-appointment/{doctorId}/{date}','FrontendController@show')->name('create.appointment');
+Route::get('/doctor-register','FrontendController@doctorRegister')->name('doctor.register');
 
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/home', 'HomeController@index')->name('home');
@@ -46,6 +47,7 @@ Route::group( ['middleware'=> ['auth', 'doctor'] ], function() {
     Route::post('/appointment/update','AppointmentController@updateTime' )->name('update');
     Route::get('/patient-today','PrescriptionController@index' )->name('patients.today');
     Route::post('/prescription','PrescriptionController@store' )->name('prescription');
+    Route::get('/doctor-patients','PatientlistController@indexDoctor')->name('patientDoctor');
     Route::get('/prescription/{user_id}/{date}','PrescriptionController@show' )->name('prescription.show');
     Route::get('/prescribed-patients','PrescriptionController@patientsFromPrescription')->name('prescription.patients');
 });

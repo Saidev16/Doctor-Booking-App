@@ -106,7 +106,7 @@ class FrontendController extends Controller{
         return view('my-prescription', compact('prescriptions'));
     }
 
-    public function test(){
-        return view('testhome');
+    public function doctorRegister(){
+        return view('auth.doctorRegister');
     }
 }

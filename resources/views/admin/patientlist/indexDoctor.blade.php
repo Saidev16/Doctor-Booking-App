@@ -3,15 +3,23 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-11">
+        <div class="col-md-10">
             <div class="card">
-              @if (Session::has('message'))
-                  <div class="alert alert-success">
-                    {{Session::get('message')}}
-                  </div>
-              @endif
                 <div class="card-header">Réservations ({{$bookings->count()}})</div>
-                
+                <form action="{{route('patientDoctor')}}" mathod="GET"> @csrf
+                    <div class="card-header">
+                            <span class="mr-3" >Filter</span> 
+                            <div class="row">
+                            <div class="col-md-10">
+                                <input autocomplete="off" type="text" name="date" class="form-control datetimepicker-input" id="datepicker" data-toggle="datetimepicker" data-target="#datepicker" name="date">
+
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-primary" >Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
 
                 <div class="card-body">
                     <table class="table">
@@ -27,7 +35,6 @@
                             <th scope="col">Heure</th>
                             <th scope="col">Docteur</th>
                             <th scope="col">Statut</th>
-                            <th scope="col">Prescription</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -35,12 +42,11 @@
                                 <tr>
                                     <th scope="row">{{$key+1}}</th>
                                     <td> @if($booking->user->image)
-                                      <img src="/profile/{{$booking->user->image}}" width="40" style="border-radius: 50%" >
-                                  @else 
-                                  <img src="/images/unknown.jpg" width="30px" height="30px" style="border-radius: 50%" >
+                                            <img src="/profile/{{$booking->user->image}}" width="40" style="border-radius: 50%" >
+                                        @else 
+                                        <img src="/images/unknown.jpg" width="30px" height="30px" style="border-radius: 50%" >
 
-                                  @endif  </td> 
-
+                                        @endif  </td> 
                                     <td>{{$booking->date}} </td>
                                     <td>{{$booking->user->name}}</td>
                                     <td>{{$booking->user->email}}</td>
@@ -49,24 +55,11 @@
                                     <td>{{$booking->time}}</td>
                                     <td>{{$booking->doctor->name}}</td>
                                     <td>
-                                        @if ($booking->status == 1)
-                                            <button class="btn btn-success">Validé</button>
+                                        @if ($booking->status == 0)
+                                            <a href="{{route('update.status',[$booking->id])}}"> <button class="btn btn-primary">En Attente</button> </a> 
+                                        @else
+                                            <a href="{{route('update.status',[$booking->id])}}"><button class="btn btn-success">Confirmé</button></a> 
                                         @endif
-                                    </td>
-                                    <td>
-                                      @if (!App\prescription::where('date',date('Y-m-d'))
-                                                          ->where('doctor_id',auth()->user()->id)
-                                                          ->where('user_id',$booking->user_id)
-                                                          ->exists())
-                                        <button type="button" class="btn btn-primary mt-1" data-toggle="modal" data-target="#exampleModal{{$booking->user_id}}">
-                                          prescription médicale
-                                        </button>                                        
-                                        @include('prescription.form')
-                                      
-                                      @else
-                                        <a href="{{route('prescription.show', [$booking->user->id, $booking->date])}}" class="btn btn-secondary">voir l'ordonnance</a>
-                                      @endif
-                                            
                                     </td>
                                 </tr>
                             @empty
@@ -79,8 +72,6 @@
             </div>
         </div>
     </div>
-    <!-- Modal -->
+</div>
 
-
-  
 @endsection
