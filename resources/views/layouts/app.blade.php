@@ -167,7 +167,7 @@
 
                         <!-- Authentication Links -->
                         @guest
-                            <a href=""> 
+                            <a href="{{route('doctor.register')}}"> 
                                 <button class="btn btn-primary mr-4" >vous êtes professionnel de santé ?</button>
                             </a>
                             <li class="nav-item">

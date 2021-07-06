@@ -2054,6 +2054,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -60466,13 +60484,75 @@ var render = function() {
                   _vm._v("Ville")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "" } }, [_vm._v("Tous")]),
+                _c("option", { attrs: { value: "" } }, [
+                  _vm._v("Tout les villes")
+                ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "agadir" } }, [
                   _vm._v("agadir")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "rabat" } }, [_vm._v("rabat")])
+                _c("option", { attrs: { value: "casablanca" } }, [
+                  _vm._v("casablanca")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Rabat" } }, [_vm._v("Rabat")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Marrakech" } }, [
+                  _vm._v("Marrakech")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "El jadida" } }, [
+                  _vm._v("El jadida")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Errachidia" } }, [
+                  _vm._v("Errachidia")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Fes" } }, [_vm._v("Fes")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Kenitra" } }, [
+                  _vm._v("Kenitra")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Khenifra" } }, [
+                  _vm._v("Khenifra")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Khouribga" } }, [
+                  _vm._v("Khouribga")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Meknes" } }, [
+                  _vm._v("Meknes")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Nador" } }, [_vm._v("Nador")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Ouarzazat" } }, [
+                  _vm._v("Ouarzazat")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Oujda" } }, [_vm._v("Oujda")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Safi" } }, [_vm._v("Safi")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Settat" } }, [
+                  _vm._v("Settat")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Sale" } }, [_vm._v("Sale")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Tanger" } }, [
+                  _vm._v("Tanger")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Taza" } }, [_vm._v("Taza")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Tetouan" } }, [
+                  _vm._v("Tetouan")
+                ])
               ]
             )
           ])

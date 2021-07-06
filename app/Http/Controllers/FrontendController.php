@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Time;
 use App\User;
 use App\Booking;
+use App\Doctor;
 use App\Appointment;
 use Illuminate\Http\Request;
 use App\Mail\AppointmentMail;
@@ -109,4 +110,25 @@ class FrontendController extends Controller{
     public function doctorRegister(){
         return view('auth.doctorRegister');
     }
+
+    public function doctorRequestStore(Request $request){
+        $this->validateStore( $request );
+        $data = $request->all();
+
+        Doctor::create($data);
+        return redirect()->back()->with('message', 'Votre demande est envoyer avec succés');
+
+    }
+
+    public function validateStore($request){
+
+        return $this->validate($request , [
+            'name'=> 'required',
+            'email'=> 'required|unique:users',
+            'phone_number'=> 'required|numeric',
+        ] );
+
+        
+    }
+
 }

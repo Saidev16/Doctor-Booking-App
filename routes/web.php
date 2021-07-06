@@ -19,6 +19,7 @@ Auth::routes();
 Route::get('/','FrontendController@index' );
 Route::get('/new-appointment/{doctorId}/{date}','FrontendController@show')->name('create.appointment');
 Route::get('/doctor-register','FrontendController@doctorRegister')->name('doctor.register');
+Route::post('/doctor-store','FrontendController@doctorRequestStore')->name('request.store');
 
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/home', 'HomeController@index')->name('home');

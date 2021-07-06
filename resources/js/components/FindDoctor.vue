@@ -23,9 +23,27 @@
                         <div class="col-md-6">
                             <select name="" id="" class="form-control" v-model="ville"  @change="filterDoctorsByVille">
                                 <option disabled value="">Ville</option>
-                                <option value="">Tous</option>
-                                <option value="agadir">agadir</option>
-                                <option value="rabat">rabat</option>
+                                <option value="">Tout les villes</option>
+                                                    <option value="agadir">agadir</option>
+                                                    <option value="casablanca">casablanca</option>
+                                                    <option value="Rabat">Rabat</option>
+                                                    <option value="Marrakech">Marrakech</option>
+                                                    <option value="El jadida">El jadida</option>
+                                                    <option value="Errachidia">Errachidia</option>
+                                                    <option value="Fes">Fes</option>
+                                                    <option value="Kenitra">Kenitra</option>
+                                                    <option value="Khenifra">Khenifra</option>
+                                                    <option value="Khouribga">Khouribga</option>
+                                                    <option value="Meknes">Meknes</option>
+                                                    <option value="Nador">Nador</option>
+                                                    <option value="Ouarzazat">Ouarzazat</option>
+                                                    <option value="Oujda">Oujda</option>
+                                                    <option value="Safi">Safi</option>
+                                                    <option value="Settat">Settat</option>
+                                                    <option value="Sale">Sale</option>
+                                                    <option value="Tanger">Tanger</option>
+                                                    <option value="Taza">Taza</option>
+                                                    <option value="Tetouan">Tetouan</option>
                             </select>
                         </div>
                     </div>
