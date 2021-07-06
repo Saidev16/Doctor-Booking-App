@@ -24,26 +24,26 @@
                             <select name="" id="" class="form-control" v-model="ville"  @change="filterDoctorsByVille">
                                 <option disabled value="">Ville</option>
                                 <option value="">Tout les villes</option>
-                                                    <option value="agadir">agadir</option>
-                                                    <option value="casablanca">casablanca</option>
-                                                    <option value="Rabat">Rabat</option>
-                                                    <option value="Marrakech">Marrakech</option>
-                                                    <option value="El jadida">El jadida</option>
-                                                    <option value="Errachidia">Errachidia</option>
-                                                    <option value="Fes">Fes</option>
-                                                    <option value="Kenitra">Kenitra</option>
-                                                    <option value="Khenifra">Khenifra</option>
-                                                    <option value="Khouribga">Khouribga</option>
-                                                    <option value="Meknes">Meknes</option>
-                                                    <option value="Nador">Nador</option>
-                                                    <option value="Ouarzazat">Ouarzazat</option>
-                                                    <option value="Oujda">Oujda</option>
-                                                    <option value="Safi">Safi</option>
-                                                    <option value="Settat">Settat</option>
-                                                    <option value="Sale">Sale</option>
-                                                    <option value="Tanger">Tanger</option>
-                                                    <option value="Taza">Taza</option>
-                                                    <option value="Tetouan">Tetouan</option>
+                                <option value="agadir">agadir</option>
+                                <option value="casablanca">casablanca</option>
+                                <option value="rabat">Rabat</option>
+                                <option value="marrakech">Marrakech</option>
+                                <option value="el jadida">El jadida</option>
+                                <option value="errachidia">Errachidia</option>
+                                <option value="fes">Fes</option>
+                                <option value="kenitra">Kenitra</option>
+                                <option value="khenifra">Khenifra</option>
+                                <option value="khouribga">Khouribga</option>
+                                <option value="meknes">Meknes</option>
+                                <option value="nador">Nador</option>
+                                <option value="ouarzazat">Ouarzazat</option>
+                                <option value="oujda">Oujda</option>
+                                <option value="safi">Safi</option>
+                                <option value="settat">Settat</option>
+                                <option value="sale">Sale</option>
+                                <option value="tanger">Tanger</option>
+                                <option value="taza">Taza</option>
+                                <option value="tetouan">Tetouan</option>
                             </select>
                         </div>
                     </div>
