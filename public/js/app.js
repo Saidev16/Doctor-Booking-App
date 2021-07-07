@@ -60488,61 +60488,61 @@ var render = function() {
                   _vm._v("casablanca")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Rabat" } }, [_vm._v("Rabat")]),
+                _c("option", { attrs: { value: "rabat" } }, [_vm._v("Rabat")]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Marrakech" } }, [
+                _c("option", { attrs: { value: "marrakech" } }, [
                   _vm._v("Marrakech")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "El jadida" } }, [
+                _c("option", { attrs: { value: "el jadida" } }, [
                   _vm._v("El jadida")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Errachidia" } }, [
+                _c("option", { attrs: { value: "errachidia" } }, [
                   _vm._v("Errachidia")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Fes" } }, [_vm._v("Fes")]),
+                _c("option", { attrs: { value: "fes" } }, [_vm._v("Fes")]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Kenitra" } }, [
+                _c("option", { attrs: { value: "kenitra" } }, [
                   _vm._v("Kenitra")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Khenifra" } }, [
+                _c("option", { attrs: { value: "khenifra" } }, [
                   _vm._v("Khenifra")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Khouribga" } }, [
+                _c("option", { attrs: { value: "khouribga" } }, [
                   _vm._v("Khouribga")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Meknes" } }, [
+                _c("option", { attrs: { value: "meknes" } }, [
                   _vm._v("Meknes")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Nador" } }, [_vm._v("Nador")]),
+                _c("option", { attrs: { value: "nador" } }, [_vm._v("Nador")]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Ouarzazat" } }, [
+                _c("option", { attrs: { value: "ouarzazat" } }, [
                   _vm._v("Ouarzazat")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Oujda" } }, [_vm._v("Oujda")]),
+                _c("option", { attrs: { value: "oujda" } }, [_vm._v("Oujda")]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Safi" } }, [_vm._v("Safi")]),
+                _c("option", { attrs: { value: "safi" } }, [_vm._v("Safi")]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Settat" } }, [
+                _c("option", { attrs: { value: "settat" } }, [
                   _vm._v("Settat")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Sale" } }, [_vm._v("Sale")]),
+                _c("option", { attrs: { value: "sale" } }, [_vm._v("Sale")]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Tanger" } }, [
+                _c("option", { attrs: { value: "tanger" } }, [
                   _vm._v("Tanger")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Taza" } }, [_vm._v("Taza")]),
+                _c("option", { attrs: { value: "taza" } }, [_vm._v("Taza")]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "Tetouan" } }, [
+                _c("option", { attrs: { value: "tetouan" } }, [
                   _vm._v("Tetouan")
                 ])
               ]
