@@ -2072,6 +2072,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2127,11 +2133,11 @@ __webpack_require__.r(__webpack_exports__);
       if (this.ville != '') {
         if (this.specialite != '') {
           this.filtredDoctors = this.doctors.filter(function (obj) {
-            return obj.doctor.department == vm.specialite && obj.doctor.address == vm.ville;
+            return obj.doctor.department == vm.specialite && obj.doctor.ville == vm.ville;
           });
         } else {
           this.filtredDoctors = this.doctors.filter(function (obj) {
-            return obj.doctor.address == vm.ville;
+            return obj.doctor.ville == vm.ville;
           });
         }
       }
@@ -2145,14 +2151,14 @@ __webpack_require__.r(__webpack_exports__);
 
       if (!this.specialite) {
         this.filtredDoctors = this.doctors.filter(function (obj) {
-          return obj.doctor.address == vm.ville;
+          return obj.doctor.ville == vm.ville;
         });
       }
 
       if (this.specialite != '') {
         if (this.ville != '') {
           this.filtredDoctors = this.doctors.filter(function (obj) {
-            return obj.doctor.address == vm.ville && obj.doctor.department == vm.specialite;
+            return obj.doctor.ville == vm.ville && obj.doctor.department == vm.specialite;
           });
         } else {
           this.filtredDoctors = this.doctors.filter(function (obj) {
@@ -60441,6 +60447,28 @@ var render = function() {
                 _vm._v(" "),
                 _c("option", { attrs: { value: "Anesthesiologists" } }, [
                   _vm._v("Anesthesiologists")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "ORL" } }, [_vm._v("ORL")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Chirurgie" } }, [
+                  _vm._v("Chirurgie")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Pédiatrie" } }, [
+                  _vm._v("Pédiatrie")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Neurologie" } }, [
+                  _vm._v("Neurologie")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Radiologie" } }, [
+                  _vm._v("Radiologie")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Oncologie" } }, [
+                  _vm._v("Oncologie")
                 ])
               ]
             )
@@ -60590,7 +60618,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(d.doctor.department))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(d.doctor.address))]),
+                  _c("td", [_vm._v(_vm._s(d.doctor.ville))]),
                   _vm._v(" "),
                   _c("td", [
                     _c(

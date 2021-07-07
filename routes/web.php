@@ -36,6 +36,8 @@ Route::group( ['middleware'=> ['auth', 'patient'] ], function() {
 
 Route::group( ['middleware'=> ['auth', 'admin'] ], function() {
     Route::resource('doctors','DoctorController');
+    Route::get('/doctors-request','DoctorController@demande')->name('doctors.demande');
+    Route::get('/doctor-store/{id}','DoctorController@add')->name('request.add');
     Route::get('/patients','PatientlistController@index')->name('patient');
     Route::get('/patients/all','PatientlistController@allTimeAppointment')->name('all.appointments');
     Route::get('/status/update/{id}','PatientlistController@toggleStatus')->name('update.status');

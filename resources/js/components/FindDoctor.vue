@@ -18,6 +18,12 @@
                                 <option value="Cardiologist">Cardiologist</option>
                                 <option value="Dermatologists">Dermatologists</option>
                                 <option value="Anesthesiologists">Anesthesiologists</option>
+                                <option value="ORL">ORL</option>
+                                <option value="Chirurgie">Chirurgie</option>
+                                <option value="Pédiatrie">Pédiatrie</option>
+                                <option value="Neurologie">Neurologie</option>
+                                <option value="Radiologie">Radiologie</option>
+                                <option value="Oncologie">Oncologie</option>
                             </select>
                         </div>                    
                         <div class="col-md-6">
@@ -69,7 +75,7 @@
                             </td>
                             <td>{{d.doctor.name}}</td>
                             <td>{{d.doctor.department}}</td>
-                            <td>{{d.doctor.address}}</td>
+                            <td>{{d.doctor.ville}}</td>
                             <td>
                                 <a :href="'/new-appointment/'+d.user_id+'/'+d.date"><button class="btn btn-primary">Booking</button></a>
                             </td>
@@ -140,11 +146,11 @@ export default {
             if (this.ville != '' ){
                 if (this.specialite != '') {
                     this.filtredDoctors = this.doctors.filter(function(obj){
-                        return obj.doctor.department == vm.specialite && obj.doctor.address == vm.ville;
+                        return obj.doctor.department == vm.specialite && obj.doctor.ville == vm.ville;
                     })
                 }else{
                     this.filtredDoctors = this.doctors.filter(function(obj){
-                        return obj.doctor.address == vm.ville;
+                        return obj.doctor.ville == vm.ville;
                     })
                 }
             }
@@ -159,14 +165,14 @@ export default {
 
             if (!this.specialite){
                 this.filtredDoctors = this.doctors.filter(function(obj){
-                    return obj.doctor.address == vm.ville;
+                    return obj.doctor.ville == vm.ville;
                 })
             }
 
             if (this.specialite != ''){
                 if (this.ville != '') {
                     this.filtredDoctors = this.doctors.filter(function(obj){
-                        return obj.doctor.address == vm.ville && obj.doctor.department == vm.specialite ;
+                        return obj.doctor.ville == vm.ville && obj.doctor.department == vm.specialite ;
                     })
                 }else{
                     this.filtredDoctors = this.doctors.filter(function(obj){

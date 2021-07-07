@@ -35,9 +35,9 @@
             <div class="card">
                 <div class="card-header"> <h3>Add doctor</h3> </div>
                 <div class="card-body"> 
-                    <form  class="forms-sample" method='POST' action="{{ route('doctors.update',[$user->id] ) }}" enctype="multipart/form-data" > @csrf
-                        @method('PUT')
-                        <div class="row">
+                    <form  class="forms-sample" method='POST' action="{{ route('doctors.store') }}" enctype="multipart/form-data" > 
+                        @csrf
+                                <div class="row">
                             <div class="col-md-6">
                                 <label for="fullname">fullname</label>
                                 <input type="text" value="{{$user->name}}" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="doctor name" >
@@ -127,7 +127,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="Phone number">Phone number</label>
-                                <input type="text" value=" {{$user->phone_number}} " name="phone_number" class="form-control @error('phone_number') is-invalid @enderror" placeholder="address" >
+                                <input type="text" value=" {{$user->phone_number}} " name="phone_number" class="form-control @error('phone_number') is-invalid @enderror" placeholder="phon_number" >
                                 @error('phone_number')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -185,8 +185,8 @@
                             @enderror
 
                         </div>
-                        <button class="btn btn-primary mr-2">Update</button>
-                        <button class="btn btn-light">Cancel</button>
+                        <button class="btn btn-primary mr-2">Ajouter</button>
+                        <button class="btn btn-light">Annule</button>
 
                     </form>    
                 </div>
