@@ -56,7 +56,7 @@
                     <div class="text-center">
                         <pulse-loader :loading="loading"></pulse-loader>
                     </div>
-                    <table class="table table-striped">
+                    <table class="table table-striped" id="doctors-table">
                     <thead>
                         <tr>
                             <th>#</th>

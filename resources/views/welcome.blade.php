@@ -36,7 +36,7 @@
     <hr>
     <div class="row">
         <div class="col-md-9 mx-auto">
-            <find-doctor></find-doctor>
+            <find-doctor id="find-doctor"></find-doctor>
         </div>
     </div>
 
@@ -134,19 +134,19 @@
 										<div class="social-icon">
 											<ul>
 												<li>
-													<a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
+													<a href="#"><i class="fab fa-facebook-f"></i> </a>
 												</li>
 												<li>
-													<a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
+													<a href="#"><i class="fab fa-twitter"></i> </a>
 												</li>
 												<li>
-													<a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+													<a href="#"><i class="fab fa-linkedin-in"></i></a>
 												</li>
 												<li>
-													<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+													<a href="#"><i class="fab fa-instagram"></i></a>
 												</li>
 												<li>
-													<a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
+													<a href="#"><i class="fab fa-dribbble"></i> </a>
 												</li>
 											</ul>
 										</div>
@@ -162,11 +162,10 @@
 								<div class="footer-widget footer-menu">
 									<h2 class="footer-title">Patients</h2>
 									<ul>
-										<li><a href="search.html">Search for Doctors</a></li>
-										<li><a href="login.html">Login</a></li>
-										<li><a href="register.html">Register</a></li>
-										<li><a href="booking.html">Booking</a></li>
-										<li><a href="patient-dashboard.html">Patient Dashboard</a></li>
+										<li><a href="{{ route('login') }}">Login</a></li>
+										<li><a href="{{ route('register') }}">Register</a></li>
+										<li><a href="{{ route('my.booking') }}">My booking</a></li>
+										<li><a href="{{ route('my.prescription') }}">My prescription</a></li>
 									</ul>
 								</div>
 								<!-- /Footer Widget -->
@@ -179,11 +178,10 @@
 								<div class="footer-widget footer-menu">
 									<h2 class="footer-title">Visiteurs</h2>
 									<ul>
-										<li><a href="appointments.html">Docteurs</a></li>
-										<li><a href="chat.html">Chat</a></li>
-										<li><a href="login.html">Login</a></li>
-										<li><a href="doctor-register.html">Register</a></li>
-										<li><a href="doctor-dashboard.html">Doctor Dashboard</a></li>
+										<li><a href="{{ route('login') }}">Login</a></li>
+										<li><a href="{{ route('register') }}">Register</a></li>
+										<li><a href="#doctors-table">Doctors</a></li>
+										<li><a href="#find-doctor">Search for Doctors</a></li>
 									</ul>
 								</div>
 								<!-- /Footer Widget -->
