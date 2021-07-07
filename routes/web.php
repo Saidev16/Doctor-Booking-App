@@ -49,8 +49,11 @@ Route::group( ['middleware'=> ['auth', 'doctor'] ], function() {
     Route::get('/patient-today','PrescriptionController@index' )->name('patients.today');
     Route::post('/prescription','PrescriptionController@store' )->name('prescription');
     Route::get('/doctor-patients','PatientlistController@indexDoctor')->name('patientDoctor');
+    Route::get('/status/update/{id}','PatientlistController@toggleStatus')->name('update.status');
     Route::get('/prescription/{user_id}/{date}','PrescriptionController@show' )->name('prescription.show');
     Route::get('/prescribed-patients','PrescriptionController@patientsFromPrescription')->name('prescription.patients');
 });
 
 Route::get('/test','FrontendController@test' );
+
+

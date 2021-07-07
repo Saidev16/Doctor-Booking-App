@@ -12,12 +12,12 @@
                         <thead>
                           <tr>
                             <th scope="col">Date</th>
-                            <th scope="col">Doctor</th>
-                            <th scope="col">Disease</th>
-                            <th scope="col">Symptoms</th>
-                            <th scope="col">Medicine</th>
-                            <th scope="col">Procedure to use medicine</th>
-                            <th scope="col">Doctor feedback</th>
+                            <th scope="col">Docteur</th>
+                            <th scope="col">maladie</th>
+                            <th scope="col">Symptômes</th>
+                            <th scope="col">Médicaments</th>
+                            <th scope="col">Traitement</th>
+                            <th scope="col">Retour du docteur</th>
                           </tr>
                         </thead>
                         <tbody>

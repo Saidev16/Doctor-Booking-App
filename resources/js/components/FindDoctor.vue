@@ -13,8 +13,7 @@
                     <div class="row my-2">
                         <div class="col-md-6">
                             <select name="department" id="" class="form-control" v-model="specialite" @change="filterDoctorsBySpecialite">
-                                <option disabled value="">specialité</option>
-                                <option value="">Tous</option>
+                                <option value="">Tout les spécialtés</option>
                                 <option value="Cardiologist">Cardiologist</option>
                                 <option value="Dermatologists">Dermatologists</option>
                                 <option value="Anesthesiologists">Anesthesiologists</option>
@@ -22,7 +21,6 @@
                         </div>                    
                         <div class="col-md-6">
                             <select name="" id="" class="form-control" v-model="ville"  @change="filterDoctorsByVille">
-                                <option disabled value="">Ville</option>
                                 <option value="">Tout les villes</option>
                                                     <option value="agadir">agadir</option>
                                                     <option value="casablanca">casablanca</option>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 mt-3">
             <div class="card">
                 <div class="card-body text-center">
                     <h4 class="text-center">
@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 mt-3">
             @foreach ($errors->all() as $error)
                 <div class="alert alert-danger">{{$error}}</div>
             @endforeach
@@ -38,7 +38,7 @@
                         <div class="row">
                             @foreach ($times as $time)
                             <div class="col-md-3">
-                                <label for="" class="btn btn-outline-primary">
+                                <label for="" class="btn btn-outline-primary" style="width: 100px;">
                                     <input type="radio" name="time" value="{{ $time->time }}">
                                     <span style="color: #009efb">{{ $time->time }}</span>
                                 </label>

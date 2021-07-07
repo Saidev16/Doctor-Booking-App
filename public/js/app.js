@@ -2070,8 +2070,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -60425,11 +60423,9 @@ var render = function() {
                 }
               },
               [
-                _c("option", { attrs: { disabled: "", value: "" } }, [
-                  _vm._v("specialité")
+                _c("option", { attrs: { value: "" } }, [
+                  _vm._v("Tout les spécialtés")
                 ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "" } }, [_vm._v("Tous")]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "Cardiologist" } }, [
                   _vm._v("Cardiologist")
@@ -60480,10 +60476,6 @@ var render = function() {
                 }
               },
               [
-                _c("option", { attrs: { disabled: "", value: "" } }, [
-                  _vm._v("Ville")
-                ]),
-                _vm._v(" "),
                 _c("option", { attrs: { value: "" } }, [
                   _vm._v("Tout les villes")
                 ]),
