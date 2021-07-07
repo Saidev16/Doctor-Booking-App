@@ -6,12 +6,6 @@
 			<!-- Page Content -->
 			<div class="content">
 				<div class="container-fluid">
-                    @if( Session::has('message') )
-                    <div class="alert alert-success">
-                        {{ Session::get('message') }}
-                    </div>
-                    @endif
-    
 					
 					<div class="row">
 						<div class="col-md-8 offset-md-2">
@@ -23,6 +17,12 @@
 										<img src="assets/img/login-banner.png" class="img-fluid" alt="Doccure Login">	
 									</div>
 									<div class="col-md-12 col-lg-6 login-right">
+                                        @if( Session::has('message') )
+                                        <div class="alert alert-success">
+                                            {{ Session::get('message') }}
+                                        </div>
+                                        @endif
+                        
 										<div class="login-header text-center">
 											<h4>Envoyer nous une demande pour rejoindre notre réseau du docteurs</h4>
 										</div>
@@ -52,7 +52,7 @@
                                            
                                             <div class="form-group form-focus">
                                                 <select name="city" class="form-control" id="">
-                                                    <option value="">Ville</option>
+                                                    <option disabled value="">Ville</option>
                                                     <option value="agadir">agadir</option>
                                                     <option value="casablanca">casablanca</option>
                                                     <option value="rabat">Rabat</option>
