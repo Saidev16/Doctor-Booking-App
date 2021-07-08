@@ -20,6 +20,9 @@ class PatientlistController extends Controller
     }
 
     public function indexDoctor(Request $request){
+        
+        date_default_timezone_set('Africa/Casablanca');
+
 
         if($request->date){
             $bookings = Booking::latest()->where([

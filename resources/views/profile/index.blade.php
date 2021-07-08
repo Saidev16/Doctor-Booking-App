@@ -5,7 +5,7 @@
     @if (Session::has('message'))
         <div class="alert alert-success">{{Session::get('message')}}</div>
     @endif
-    <div class="row">
+    <div class="row mt-3">
         
         <div class="col-md-3">
             <div class="card">
@@ -14,7 +14,7 @@
                 <div class="card-body">
                     <p>Name: {{auth()->user()->name}} </p>
                     <p>Email: {{auth()->user()->email}} </p>
-                    <p>Address: {{auth()->user()->address}} </p>
+                    <p>Address: {{auth()->user()->ville}} </p>
                     <p>Phone: {{auth()->user()->phone_number}} </p>
                     <p>Gender: {{auth()->user()->gender}} </p>
                     <p>Bio: {{auth()->user()->description}} </p>
@@ -39,8 +39,8 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">address</label>
-                            <input type="text" name="address" class="form-control" value="{{auth()->user()->address}}">
+                            <label for="ville">Ville</label>
+                            <input type="text" name="ville" class="form-control" value="{{auth()->user()->ville}}">
                         </div>
                         <div class="form-group">
                             <label for="">Phone</label>

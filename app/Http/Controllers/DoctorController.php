@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Doctor;
+use App\Mail\CreateDocMail;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class DoctorController extends Controller
 {
@@ -39,6 +42,7 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $this->validateStore( $request );
         $data = $request->all();
 
@@ -47,6 +51,19 @@ class DoctorController extends Controller
         $data['image'] = $name ;
         $data['password'] = bcrypt( $request->password );
         User::create($data);
+
+        $mailData = [
+            'doctorName' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+
+        // try {
+            Mail::to($request->email)->send(new CreateDocMail($mailData));
+        // } catch (\Exception $e) {
+        //     report($e);
+        // }
+
         return redirect()->back()->with('message', 'Doctor added successfully');
 
 
@@ -133,6 +150,18 @@ class DoctorController extends Controller
 
     }
 
+    public function demande()
+    {
+        $users = Doctor::all();
+        return view('admin.doctor.demande' , compact('users'));  
+    }
+
+    public function add($id)
+    {
+        $user = Doctor::find($id);
+        return view('admin.doctor.add', compact('user'));
+    }
+
     public function validateStore($request){
 
         return $this->validate($request , [
@@ -141,7 +170,7 @@ class DoctorController extends Controller
             'password'=> 'required|min:6|max:25',
             'gender'=> 'required',
             'education'=> 'required',
-            'adress'=> 'required',
+            'ville'=> 'required',
             'department'=> 'required',
             'phone_number'=> 'required|numeric',
             'image'=> 'required|mimes:jpeg,jpg,png',
@@ -158,7 +187,7 @@ class DoctorController extends Controller
             'email'=> 'required|unique:users,email,'.$id,
             'gender'=> 'required',
             'education'=> 'required',
-            'adress'=> 'required',
+            'ville'=> 'required',
             'department'=> 'required',
             'phone_number'=> 'required|numeric',
             'image'=> 'mimes:jpeg,jpg,png',
@@ -169,5 +198,7 @@ class DoctorController extends Controller
         
  
     }
+
+    
 
 }

@@ -62,7 +62,7 @@
                         <div class="row mt-4">
                             <div class="col-md-6">
                                 <label for="password">Password</label>
-                                <input type="password" name="password" class="form-control  @error('name') is-invalid @enderror" placeholder="Doctor Password" >
+                                <input type="password" name="password" class="form-control  @error('password') is-invalid @enderror" placeholder="Doctor Password" >
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -71,7 +71,7 @@
 
                             </div>
                             <div class="col-md-6">
-                                <label for="Gender">Gender</label>
+                                <label for="gender">Gender</label>
                                 <select name="gender" class="form-control  @error('gender') is-invalid @enderror">
                                     <option value="">Select a gender</option>
                                     <option value="male">Male</option>
@@ -98,9 +98,9 @@
 
                             </div>
                             <div class="col-md-6">
-                                <label for="Adress">Adress</label>
-                                <input type="text" value="{{old('adress')}}" name="adress" class="form-control @error('adress') is-invalid @enderror" placeholder="address" >
-                                @error('adress')
+                                <label for="ville">Ville</label>
+                                <input type="text" value="{{old('ville')}}" name="ville" class="form-control @error('ville') is-invalid @enderror" placeholder="ville" >
+                                @error('ville')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -127,7 +127,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="Phone number">Phone number</label>
-                                <input type="text" name="phone_number" class="form-control @error('phone_number') is-invalid @enderror" placeholder="address" >
+                                <input type="text" name="phone_number" class="form-control @error('phone_number') is-invalid @enderror" placeholder="phone_number" >
                                 @error('phone_number')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -177,7 +177,7 @@
 
                         <div class="form-group">
                             <label for="">About</label>
-                            <textarea name="description" cols="30" rows="7" class='form-control @error('image') is-invalid @enderror'></textarea>
+                            <textarea name="description" cols="30" rows="7" class='form-control @error('description') is-invalid @enderror'></textarea>
                             @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

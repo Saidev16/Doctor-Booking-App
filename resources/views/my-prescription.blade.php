@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="">
+<div class="mt-3">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -23,13 +23,13 @@
                         <tbody>
                             @forelse ($prescriptions as $prescription)
                             <tr>
-                                <th scope="row">{{$prescription->date}} </th>
-                                <th scope="row">{{$prescription->doctor->name}} </th>
-                                <th scope="row">{{$prescription->name_of_disease}} </th>
-                                <th scope="row">{{$prescription->symptoms}} </th>
-                                <th scope="row">{{$prescription->medicine}} </th>
-                                <th scope="row">{{$prescription->procedure_to_use_medicine}} </th>
-                                <th scope="row">{{$prescription->feedback}} </th>
+                                <td scope="row">{{$prescription->date}} </td>
+                                <td scope="row">{{$prescription->doctor->name}} </td>
+                                <td scope="row">{{$prescription->name_of_disease}} </td>
+                                <td scope="row">{{$prescription->symptoms}} </td>
+                                <td scope="row">{{$prescription->medicine}} </td>
+                                <td scope="row">{{$prescription->procedure_to_use_medicine}} </td>
+                                <td scope="row">{{$prescription->feedback}} </td>
                               </tr>
                             @empty
                                 <td>You have no prescriptions</td>

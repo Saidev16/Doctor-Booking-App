@@ -2070,6 +2070,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2125,11 +2133,11 @@ __webpack_require__.r(__webpack_exports__);
       if (this.ville != '') {
         if (this.specialite != '') {
           this.filtredDoctors = this.doctors.filter(function (obj) {
-            return obj.doctor.department == vm.specialite && obj.doctor.address == vm.ville;
+            return obj.doctor.department == vm.specialite && obj.doctor.ville == vm.ville;
           });
         } else {
           this.filtredDoctors = this.doctors.filter(function (obj) {
-            return obj.doctor.address == vm.ville;
+            return obj.doctor.ville == vm.ville;
           });
         }
       }
@@ -2143,14 +2151,14 @@ __webpack_require__.r(__webpack_exports__);
 
       if (!this.specialite) {
         this.filtredDoctors = this.doctors.filter(function (obj) {
-          return obj.doctor.address == vm.ville;
+          return obj.doctor.ville == vm.ville;
         });
       }
 
       if (this.specialite != '') {
         if (this.ville != '') {
           this.filtredDoctors = this.doctors.filter(function (obj) {
-            return obj.doctor.address == vm.ville && obj.doctor.department == vm.specialite;
+            return obj.doctor.ville == vm.ville && obj.doctor.department == vm.specialite;
           });
         } else {
           this.filtredDoctors = this.doctors.filter(function (obj) {
@@ -60437,6 +60445,28 @@ var render = function() {
                 _vm._v(" "),
                 _c("option", { attrs: { value: "Anesthesiologists" } }, [
                   _vm._v("Anesthesiologists")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "ORL" } }, [_vm._v("ORL")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Chirurgie" } }, [
+                  _vm._v("Chirurgie")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Pédiatrie" } }, [
+                  _vm._v("Pédiatrie")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Neurologie" } }, [
+                  _vm._v("Neurologie")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Radiologie" } }, [
+                  _vm._v("Radiologie")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Oncologie" } }, [
+                  _vm._v("Oncologie")
                 ])
               ]
             )
@@ -60557,58 +60587,65 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c("table", { staticClass: "table table-striped" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            [
-              _vm._l(_vm.filtredDoctors, function(d, index) {
-                return _c("tr", { key: index }, [
-                  _c("td", [_vm._v(_vm._s(index + 1))]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _c("img", {
-                      staticStyle: { "border-radius": "10%" },
-                      attrs: {
-                        src: "/images/" + d.doctor.image,
-                        width: "80",
-                        alt: "doctor image"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(d.doctor.name))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(d.doctor.department))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(d.doctor.address))]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _c(
-                      "a",
-                      {
+        _c(
+          "table",
+          {
+            staticClass: "table table-striped",
+            attrs: { id: "doctors-table" }
+          },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              [
+                _vm._l(_vm.filtredDoctors, function(d, index) {
+                  return _c("tr", { key: index }, [
+                    _c("td", [_vm._v(_vm._s(index + 1))]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("img", {
+                        staticStyle: { "border-radius": "10%" },
                         attrs: {
-                          href: "/new-appointment/" + d.user_id + "/" + d.date
+                          src: "/images/" + d.doctor.image,
+                          width: "80",
+                          alt: "doctor image"
                         }
-                      },
-                      [
-                        _c("button", { staticClass: "btn btn-primary" }, [
-                          _vm._v("Booking")
-                        ])
-                      ]
-                    )
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(d.doctor.name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(d.doctor.department))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(d.doctor.ville))]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: "/new-appointment/" + d.user_id + "/" + d.date
+                          }
+                        },
+                        [
+                          _c("button", { staticClass: "btn btn-primary" }, [
+                            _vm._v("Booking")
+                          ])
+                        ]
+                      )
+                    ])
                   ])
-                ])
-              }),
-              _vm._v(" "),
-              _vm.filtredDoctors.length == 0
-                ? _c("td", [_vm._v("No doctor available for this date")])
-                : _vm._e()
-            ],
-            2
-          )
-        ])
+                }),
+                _vm._v(" "),
+                _vm.filtredDoctors.length == 0
+                  ? _c("td", [_vm._v("No doctor available for this date")])
+                  : _vm._e()
+              ],
+              2
+            )
+          ]
+        )
       ])
     ])
   ])
